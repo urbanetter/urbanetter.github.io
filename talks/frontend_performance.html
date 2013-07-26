@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Frontend performance - wher it matters</title>
+
+		<meta name="description" content="A talk about where frontend performance really matters">
+		<meta name="author" content="Urban Etter">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+		<link rel="stylesheet" href="css/frontend_performance.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Frontend Performance</h1>
+					<h3>Where it matters</h3>
+					<p>
+						<small>Urban Etter</small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>About me</h2>
+					</section>
+					<section>
+						<h3>Urban Legends</h3>
+					</section>
+					<section>
+						<h3>Urban Myths</h3>
+					</section>
+					<section>
+						<h3>Urban Etter</h3>
+					</section>
+					<section>
+						<p>is</p>
+					</section>
+					<section>
+						<h3>Web Architect</h3>
+					</section>
+					<section>
+						<p>and</p>
+					</section>
+					<section>
+						<h3>Part of the Frontend Scrum Team</h3>
+					</section>
+					<section>
+						<p>at</p>
+					</section>
+					<section>
+						<h3>Schweizer Radio und Fernsehen</h3>
+					</section>
+					<section>
+						<img src="img/srf_logo.png" border="0">
+					</section>
+					<section>
+						<p>which means</p>
+					</section>					
+					<section>
+						<h3>Swiss Radio and Television</h3>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h2>Performance matters</h2>
+					</section>
+					<section>
+						<blockquote>
+							... that slowing down the search results page by 100 to 400 milliseconds has a measurable impact on the number of searches per user of -0.2% to -0.6%
+						</blockquote>
+						<p>by <a href="http://googleresearch.blogspot.ch/2009/06/speed-matters.html">Google</a></p>
+					</section>
+					<section>
+						<blockquote>
+							To get that sensation, your requests need to take less than 100ms. 
+						</blockquote>
+						<p>by <a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">37 signals</a>
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: 'beige', // available themes are in /css/theme
+				transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
