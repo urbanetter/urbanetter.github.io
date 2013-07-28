@@ -13,21 +13,20 @@
 html, body { height: 100%; }
 
 body {
-  background-color: #FFF;
-  font: 13.34px Helvetica, Arial, sans-serif;
-  font-size: small;
+  background-color: #CFCF7C;
+  font: 18px Helvetica, Arial, sans-serif;
   text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%; }
 
-h1 { margin-bottom: 1em; }
+h1 { margin-bottom: 1em; font-size: 2em; color }
 p { margin: 1em 0; }
 
-a         { color: #00a; }
-a:hover   { color: #000; }
-a:visited { color: #a0a; }
+a         { color: #CA0700; text-decoration: none; }
+a:hover   { color: #5C1E1B; text-decoration: none; }
+a:visited { color: #CA0700; text-decoration: none; }
 
 table {
   font-size: inherit;
@@ -79,11 +78,11 @@ ul.posts span {
 }
 
 .site .header h1.title a {
-  color: #a00;
+  color: #5C1E1B;
 }
 
 .site .header h1.title a:hover {
-  color: #000;
+  color: #4E280B;
 }
 
 .site .header a.extra {

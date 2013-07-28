@@ -7,7 +7,7 @@ categories: talk
 
 My first talk at a conference will be at the [Frontend Conference in Zurich][front].
 
-Here are the [slides], based on [Reveal.js][reveal]
+Here are the [slides], based on [Reveal.js][reveal]. This is work in progress, so please bear with me :)
 
 [front]: http://2013.frontendconf.ch
 [reveal]: http://lab.hakim.se/reveal-js
