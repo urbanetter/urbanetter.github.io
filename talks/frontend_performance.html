@@ -145,6 +145,51 @@
 					</section>
 				</section>
 
+				<section>
+					<section>
+						<h1>Loading process</h1>
+					</section>
+					<section>
+						<h2>Key to frontend performance</h2>
+						<h2 class="fragment">is to understand the page loading process</h2>
+					</section>
+					<section>
+						<img src="img/server_talking.png">
+					</section>
+					<section>
+						<h2>In real world, there are a lot more files</h2>
+					</section>
+					<section>
+						<img src="img/loading_waterfall.png">
+					</section>
+					<section>
+						<img src="img/waterfall_context.png">
+					</section>
+					<section>
+						<h3>This means</h3>
+						<ul>
+							<li class="fragment">It took almost 1 second to fetch the initial HTML</li>
+							<li class="fragment">It took almost 3.5 seconds to reach DOM ready</li>
+							<li class="fragment">It took almost 4.5 seconds to reach "loaded" event</li>
+						</ul>
+					</section>
+					<section>
+						<img src="img/waterfall_parallel_requests.png">
+					</section>
+					<section>
+						<p>The browser (IE9 in this case)</p>
+						<p>only starts 4 parallel requests for images</p>
+					</section>
+					<section>
+						<h3>In older browser this restriction is set to 2</h3>
+					</section>
+					<section>
+						<h3>This restriction is part of the HTTP standard</h3>
+					</section>
+					<section>
+						<h3>But modern browsers don't care</h3>
+					</section>
+				</section>
 
 			</div>
 
