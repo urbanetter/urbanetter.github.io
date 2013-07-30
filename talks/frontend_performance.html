@@ -190,6 +190,61 @@
 						<h3>But modern browsers don't care</h3>
 					</section>
 				</section>
+				
+				<section>
+					<section>
+						<h1>Load JS asynchronously</h1>
+					</section>
+					<section>
+						<pre><code data-trim>
+&lt;head&gt;
+	&lt;link rel="stylesheet" href="css/my_fancy_style.css"&gt;
+	&lt;script src="js/my_fancy_script.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	My fancy content
+&lt;/body&gt;						
+						</code></pre>
+					</section>
+					<section>
+						<h2>Problem: JS blocks rendering process</h2>
+					</section>
+					<section>
+						<h2>Solution 1</h2>
+					</section>
+					<section>
+						<h2>Use <code>async</code> attribute</h2>
+					</section>
+					<section>
+						<pre><code data-trim>
+&lt;head&gt;
+	&lt;link rel="stylesheet" href="css/my_fancy_style.css"&gt;
+	&lt;script src="js/my_fancy_script.js" async="asyn"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	My fancy content
+&lt;/body&gt;						
+						</code></pre>
+					</section>
+					<section>
+						<h2>Solution 2</h2>
+						<p>Preferred</p>
+					</section>
+					<section>
+						<h2>Put JS at the end of the body tag</h2>
+					</section>
+					<section>
+						<pre><code data-trim>
+&lt;head&gt;
+	&lt;link rel="stylesheet" href="css/my_fancy_style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	My fancy content
+	&lt;script src="js/my_fancy_script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;						
+						</code></pre>
+					</section>
+				</section>
 
 			</div>
 
