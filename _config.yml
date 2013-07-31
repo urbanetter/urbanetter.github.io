@@ -1,2 +1,61 @@
-name: Urban coding
-pygments: true
+title:            Urban Etter
+description:      Urban about web development and life.
+logo:             site-logo.png
+#disqus_shortname: 
+#Comment out url when working locally to resolve base urls correctly
+#url:              http://your-website.com
+
+# Owner/author information
+owner:
+  name:           Urban Etter
+  avatar:         bio-photo.png
+  email:          uetter@gmail.com
+  # Social networking links used in footer. Update and remove as you like.
+  twitter:        http://www.twitter.com/urbmc
+  facebook:       http://www.facebook.com/urban.etter
+  github:         http://www.github.com/urbanetter
+
+# Analytics and webmaster tools stuff goes here
+#google_analytics:   
+#google_verify:      
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+#bing_verify:         
+
+# Links to include in top navigation
+# For external links add external: true
+links:
+  - title: About
+    url: /about
+  - title: Articles
+    url: /articles
+  - title: Theme Setup
+    url: /theme-setup
+  - title: Made Mistakes
+    url: http://mademistakes.com
+    external: true
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:    Europe/Zurich
+future:      true
+pygments:    true
+markdown:    kramdown
+
+# https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink:   /:categories/:title
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+
+  coderay:
+    coderay_line_numbers: 
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
+include: [".htaccess"]
+exclude: ["config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec"]
