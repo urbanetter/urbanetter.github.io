@@ -91,6 +91,16 @@
 						</blockquote>
 						<p>by <a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">37 signals</a>
 					</section>
+					<section>
+						<h3>Performance is a</h3>
+						<h1>feature</h1>
+					</section>
+					<section>
+						<h3>It takes effort to get it right</h3>
+					</section>
+					<section>
+						<h3>And involves almost every discipline in web development</h3>
+					</section>
 				</section>
 				
 				<section>
@@ -248,13 +258,120 @@
 						<h2>Defer loading of some scripts until needed</h2>
 					</section>
 					<section>
-						<img src="img/defered_calendar.png">
+						<img src="img/deferred_calendar.png">
 					</section>
 					<section>
 						<h2>Calendar is not needed until click on calendar icon</h2>
 					</section>
+					<section>
+						<h2>Load calendar JS when clicking on the calendar</h2>
+					</section>
+					<section>
+						<img src="img/calendar.png">
+					</section>
+					<section>
+						<h2>Load calendar JS when hovering on the calendar</h2>
+					</section>
+					<section>
+						<h2>Load calendar JS when all other code is loaded</h2>
+					</section>
+					<section>
+						<h2>Result: Added</h2>
+						<h1>Complexity</h1>
+					</section>
+					<section>
+						<h2>Result: Additional</h2>
+						<h1>HTTP request</h1>
+					</section>
+					<section>
+						<h3>Bad if you have the calendar on a lot of pages</h3>
+					</section>
+					<section>
+						<h1>But...</h1>
+					</section>
+					<section>
+						<h3>save some bandwith for not used features</h3>
+					</section>
+					<section>
+						<h2>Been there, done that</h2>
+					</section>
+					<section>
+						<h1>Just not worth it</h1>
+					</section>
+					<section>
+						<h3>Which does not mean you should</h3>
+						<h1>Never</h1>
+						<h3>do it</h3>
+					</section>
+					<section>
+						<h3>But you probably won't have to do it</h3>
+					</section>
+					<section>
+						<h3>Deferred != Bad</h3>
+					</section>
+					<section>
+						<h3>Deferred image loading actually really makes a difference</h3>
+					</section>
+					<section>
+						<h1>if</h1>
+					</section>
+					<section>
+						<h3>you really have a lot of (big) images on the page</h3>
+					</section>
 				</section>
-
+				<section>
+					<section>
+						<h1>Browser cache</h1>
+					</section>
+					<section>
+						<h2>When all JS is in one file</h2>
+					</section>
+					<section>
+						<h2>Browser only has to download it once</h2>
+					</section>
+					<section>
+						<h2>Free for the rest of the stay</h2>
+					</section>
+					<section>
+						<p>This means</p>
+						<h2>Put all your JS into one file</h2>
+					</section>
+					<section>
+						<p>Because</p>
+						<h2>One HTTP request</h2>
+					</section>
+					<section>
+						<h2>On the first page view</h2>
+					</section>
+					<section>
+						<p>It doesn't even matter if you</p>
+						<h2>Need all the JS for this page</h2>
+					</section>
+					<section>
+						<h2>Its better to have a bigger file with first request</h2>
+					</section>
+					<section>
+						<h2>than to have x additional requests</h2>
+					</section>
+					<section>
+						<h2>Not always true</h2>
+					</section>		
+					<section>
+						<h2>If you have lot of JS which is only used in one part of the site...</h2>
+					</section>		
+					<section>
+						<h2>Make two files, one with basic JS for every page</h2>
+					</section>		
+					<section>
+						<h2>one with special content for a part of the page</h2>
+					</section>		
+					<section>
+						<h1>Performance</h1>
+						<h2>vs</h2>
+						<h1>Complexity</h1>
+					</section>		
+					
+				</section>
 			</div>
 
 		</div>
