@@ -101,9 +101,6 @@
 					<section>
 						<h3>And involves almost every discipline in web development</h3>
 					</section>
-				</section>
-				
-				<section>
 					<section>
 						<p>Now this topic is</p>
 						<h1>HUGE</h1>
@@ -337,6 +334,9 @@
 						<h2>Put all your JS into one file</h2>
 					</section>
 					<section>
+						<h2>Minify</h2>
+					</section>
+					<section>
 						<p>Because</p>
 						<h2>One HTTP request</h2>
 					</section>
@@ -370,7 +370,65 @@
 						<h2>vs</h2>
 						<h1>Complexity</h1>
 					</section>		
-					
+				</section>
+				<section>
+					<section>
+						<h1>Versioning</h1>
+					</section>
+					<section>
+						<h2>You change your CSS</h2>
+					</section>
+					<section>
+						<h2>Browser cached CSS</h2>
+						<aside>Your new friend browser cache tricks you here</aside>
+					</section>
+					<section>
+						<p>TODO: image "clear your browser cache"</p>
+					</section>
+					<section>
+						<code>&lt;script src="my_awsome_script.js"&gt;&lt;/script&gt;</code>
+					</section>
+					<section>
+						<code>&lt;script src="my_awsome_script.js?v=12"&gt;&lt;/script&gt;</code>
+					</section>
+					<section>
+						<aside>How we do this at srf.ch</aside>
+						<pre><code data-trim>
+&lt;head&gt;
+	&lt;link rel="stylesheet" href="css/my_fancy_style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	My fancy content
+	{render_include_statement('global')}
+&lt;/body&gt;						
+						</code></pre>
+					</section>
+					<section>
+						<pre><code data-trim>
+[global]
+javascript[]=jquery.js
+javascript[]=jquery.cookie.js
+...
+						</code></pre>
+					</section>
+					<section>
+						<pre><code data-trim>
+function render_include_statement(groupName) {
+	files = new Group(groupName);
+	lastRun = getLastRun();
+	newestModificationDate = files.newestModificationDate;
+	if (newestModificationDate > lastRun.timestamp) {
+		result = concatenate(files);
+		result = pack(result);
+		filename = md5(newestModificationDate);
+		save_file(filename, result);
+	} else {
+		filename = lastRun.filename;
+	}
+	return '&lt;script src="filename"&gt;&lt;/script&gt;';
+}
+						</code></pre>
+					</section>						
 				</section>
 			</div>
 
