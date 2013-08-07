@@ -99,11 +99,11 @@
 						<h2>It takes effort to get it right</h2>
 					</section>
 					<section>
-						<h2>It often conflicts with other interests like</h2>
+						<h2>It often conflicts with other interests</h2>
 						<ul>
-							<li>Reduced complexity</li>
-							<li>Security</li>
-							<li>Maintainability</li>
+							<li class="fragment">Reduced complexity</li>
+							<li class="fragment">Maintainability</li>
+							<li class="fragment">Security</li>
 						</ul>
 					</section>
 					<section>
@@ -392,10 +392,10 @@
 					</section>
 					<section>
 						<h2>Browser cached CSS</h2>
-						<aside>Your new friend browser cache tricks you here</aside>
+						<aside class="notes">Your new friend browser cache tricks you here</aside>
 					</section>
 					<section>
-						<p>TODO: image "clear your browser cache"</p>
+						<img src="img/calmclearcache.jpg">
 					</section>
 					<section>
 						<code>&lt;script src="my_awsome_script.js"&gt;&lt;/script&gt;</code>
@@ -404,7 +404,7 @@
 						<code>&lt;script src="my_awsome_script.js?v=12"&gt;&lt;/script&gt;</code>
 					</section>
 					<section>
-						<aside>How we do this at srf.ch</aside>
+						<aside class="notes">How we do this at srf.ch</aside>
 						<pre><code data-trim>
 &lt;head&gt;
 	&lt;link rel="stylesheet" href="css/my_fancy_style.css"&gt;
@@ -449,18 +449,19 @@ function render_include_statement(groupName) {
 					<section>
 						<h2>DOM</h2>
 						<p>=</p>
-						<h2>HTML of page, accessible by JS</h2>
-						<aside>Not a technical defenition, more a craftsman one</aside>
+						<h2>HTML representation</h2>
+						<h2>accessible by JS</h2>
+						<aside class="notes">Not a technical definition</aside>
 					</section>
 					<section>
-						<h2>We use JS to manipulate teh DOM</h2>
+						<h2>We use JS to manipulate the DOM</h2>
 					</section>
 					<section>
 						<h2>Browser has internal DOM structure</h2>
 					</section>
 					<section>
-						<aside>What the browser has to do when executing a JS call. Not the part of jQuery, which translates the sugar syntax into othe DOM methods.</aside>
-						<code>$('#msg').addClass('very_important');</code>
+						<aside class="notes">What the browser has to do when executing a JS call. Not the part of jQuery, which translates the sugar syntax into othe DOM methods.</aside>
+						<pre><code>$('#msg').addClass('very_important');</code></pre>
 						<ul>
 							<li class="fragment">Look up the <code>div</code> with id "msg" in the internal structure</li>
 							<li class="fragment">Modify the internal structure</li>
@@ -471,7 +472,7 @@ function render_include_statement(groupName) {
 						<h2>If manipulation is done on variable</h2>
 					</section>
 					<section>
-						<pre><code>
+						<pre><code data-trim>
 var content = $('&lt;div&gt;');
 content.addClass('very_important');
 // more manipulation
@@ -481,10 +482,9 @@ $('#msg').append(content);
 					<section>
 						<h2>This saves</h2>
 						<ul>
-							<li>Modify the internal structure</li>
-							<li>Rerender (at least parts) of the page</li>
+							<li class="fragment">Modify the internal structure</li>
+							<li class="fragment">Rerender (at least parts) of the page</li>
 						</ul>
-						<h2>for all manipulations except the last one</h2>
 					</section>					
 					
 					<section>
@@ -502,30 +502,64 @@ $('#msg').append(content);
 						<img src="img/sendungen-a-z-two-uls.png">
 					</section>
 					<section>
-						<h2>HTML</h2>
-						<pre><code>
-&lt;select id=&quot;filter&quot;&gt;
-	&lt;option value=&quot;theme:news&quot;&gt;News&lt;/option&gt;
-&lt;/select&gt;
-
-&lt;div data-letter=&quot;t&quot;&gt;
-	&lt;ul&gt;
-		&lt;li data-attributes=&quot;theme:news,station:srf1,medium:tv&quot;&gt;Tagesschau&lt;/li&gt;
-	&lt;/ul&gt;
-	&lt;ul&gt;
-		&lt;li data-attributes=&quot;theme:twitter-relevant,station:srf1,medium:tv&quot;&gt;Tatort&lt;/li&gt;	
-	&lt;/ul&gt;
-&lt;/div&gt;							
+						<h2>HTML - Selects</h2>
+						<pre><code data-trim>
+&lt;select id=&quot;theme&quot;&gt;
+  &lt;option value=&quot;theme:news&quot;&gt;
+    News
+  &lt;/option&gt;
+  &lt;option value=&quot;theme:twitter-relevant&quot;&gt;
+    Twitter relevant
+  &lt;/option&gt;
+&lt;/select&gt;					
 						</code></pre>
 					</section>
 					<section>
+						<h2>HTML - Letters</h2>
+						<pre><code data-trim>
+&lt;div class="letter" data-letter=&quot;t&quot;&gt;
+  &lt;ul&gt;
+    &lt;li data-attr=&quot;theme:news&quot;&gt;
+      Tagesschau&lt;/li&gt;
+  &lt;/ul&gt;&lt;ul&gt;
+    &lt;li data-attr=&quot;theme:twitter-relevant&quot;&gt;
+      Tatort&lt;/li&gt;	
+  &lt;/ul&gt;
+&lt;/div&gt;							
+						</code></pre>
+										</section>
+					<section>
 						<h2>First aproach</h2>
-						<pre><code>
+						<pre><code data-trim>
 var filter = $('select').val();
-var selector = '[data-attributes*=' + filter + ']';
+var selector = 
+  '[data-attr*=' + filter + ']';
+
+$('li').show();
 $('li:not(' + selector + ')').hide();							
 						</code></pre>
 					</section>
+					<section>
+						<h2>Result</h2>
+						<img src="img/sendungen-a-z-first-aproach.png">
+					</section>
+					<section>
+						<h2>Second approach</h2>
+						<ul>
+							<li class="fragment">Clone all <code>&lt;li&gt;</code> elements (shows) into a repository (variable)</li>
+							<li class="fragment">Go through all letters, find the shows in the repository which match the letter and the filter</li>
+							<li class="fragment">Append each show to the proper <code>&lt;ul&gt;</code> in the letter <code>&lt;div&gt;</code></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Second approach</h2>
+						<pre><code data-trim>
+var $repository = $('li').clone();
+$('div.letter').each(function(){
+	
+});							
+						</code></pre>
+					</section>						
 				</section>
 			</div>
 
