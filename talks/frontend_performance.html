@@ -92,14 +92,22 @@
 						<p>by <a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">37 signals</a>
 					</section>
 					<section>
-						<h3>Performance is a</h3>
+						<h2>Performance is a</h2>
 						<h1>feature</h1>
 					</section>
 					<section>
-						<h3>It takes effort to get it right</h3>
+						<h2>It takes effort to get it right</h2>
 					</section>
 					<section>
-						<h3>And involves almost every discipline in web development</h3>
+						<h2>It often conflicts with other interests like</h2>
+						<ul>
+							<li>Reduced complexity</li>
+							<li>Security</li>
+							<li>Maintainability</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Involves almost every discipline in web development</h3>
 					</section>
 					<section>
 						<p>Now this topic is</p>
@@ -137,6 +145,10 @@
 					</section>
 					<section>
 						<h2>Some code</h2>
+					</section>
+					<section>
+						<h2>Frontend performance for the</h2>
+						<h1>craftsmen</h1>
 					</section>
 				</section>
 
@@ -432,19 +444,87 @@ function render_include_statement(groupName) {
 				</section>
 				<section>
 					<section>
-						<h1>TurboLink</h1>
+						<h1>DOM manipulation</h1>
 					</section>
 					<section>
-						<h2>A library which comes with Ruby on Rails 4</h2>
+						<h2>DOM</h2>
+						<p>=</p>
+						<h2>HTML of page, accessible by JS</h2>
+						<aside>Not a technical defenition, more a craftsman one</aside>
 					</section>
 					<section>
-						<h2>Idea</h2>
+						<h2>We use JS to manipulate teh DOM</h2>
 					</section>
 					<section>
-						<h2>It takes long to</h2>
+						<h2>Browser has internal DOM structure</h2>
 					</section>
 					<section>
-						<h2>Load and parse page environment</h2>
+						<aside>What the browser has to do when executing a JS call. Not the part of jQuery, which translates the sugar syntax into othe DOM methods.</aside>
+						<code>$('#msg').addClass('very_important');</code>
+						<ul>
+							<li class="fragment">Look up the <code>div</code> with id "msg" in the internal structure</li>
+							<li class="fragment">Modify the internal structure</li>
+							<li class="fragment">Rerender (at least parts) of the page</li>
+						</ul>
+					</section>
+					<section>
+						<h2>If manipulation is done on variable</h2>
+					</section>
+					<section>
+						<pre><code>
+var content = $('&lt;div&gt;');
+content.addClass('very_important');
+// more manipulation
+$('#msg').append(content);
+						</code></pre>
+					</section>
+					<section>
+						<h2>This saves</h2>
+						<ul>
+							<li>Modify the internal structure</li>
+							<li>Rerender (at least parts) of the page</li>
+						</ul>
+						<h2>for all manipulations except the last one</h2>
+					</section>					
+					
+					<section>
+						<h1>Real world example</h1>
+					</section>
+					<section>
+						<img src="img/sendungen-a-z.png">
+					</section>
+					<section>
+						<h2>Problem: Filtering</h2>
+						<img src="img/sendungen-a-z-filter.png">
+					</section>
+					<section>
+						<h2>Problem: Columns markup in 2 &lt;ul&gt;s</h2>
+						<img src="img/sendungen-a-z-two-uls.png">
+					</section>
+					<section>
+						<h2>HTML</h2>
+						<pre><code>
+&lt;select id=&quot;filter&quot;&gt;
+	&lt;option value=&quot;theme:news&quot;&gt;News&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;div data-letter=&quot;t&quot;&gt;
+	&lt;ul&gt;
+		&lt;li data-attributes=&quot;theme:news,station:srf1,medium:tv&quot;&gt;Tagesschau&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;ul&gt;
+		&lt;li data-attributes=&quot;theme:twitter-relevant,station:srf1,medium:tv&quot;&gt;Tatort&lt;/li&gt;	
+	&lt;/ul&gt;
+&lt;/div&gt;							
+						</code></pre>
+					</section>
+					<section>
+						<h2>First aproach</h2>
+						<pre><code>
+var filter = $('select').val();
+var selector = '[data-attributes*=' + filter + ']';
+$('li:not(' + selector + ')').hide();							
+						</code></pre>
 					</section>
 				</section>
 			</div>
