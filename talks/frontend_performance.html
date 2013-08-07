@@ -74,7 +74,7 @@
 						<img src="img/srf_logo.png" border="0">
 					</section>
 				</section>
-				
+
 				<section>
 					<section>
 						<h1>Performance matters</h1>
@@ -87,7 +87,7 @@
 					</section>
 					<section>
 						<blockquote>
-							To get that sensation, your requests need to take less than 100ms. 
+							To get that sensation, your requests need to take less than 100ms.
 						</blockquote>
 						<p>by <a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">37 signals</a>
 					</section>
@@ -197,7 +197,7 @@
 						<h3>But modern browsers don't care</h3>
 					</section>
 				</section>
-				
+
 				<section>
 					<section>
 						<h1>Load JS asynchronously</h1>
@@ -210,7 +210,7 @@
 &lt;/head&gt;
 &lt;body&gt;
 	My fancy content
-&lt;/body&gt;						
+&lt;/body&gt;
 						</code></pre>
 					</section>
 					<section>
@@ -230,7 +230,7 @@
 &lt;/head&gt;
 &lt;body&gt;
 	My fancy content
-&lt;/body&gt;						
+&lt;/body&gt;
 						</code></pre>
 					</section>
 					<section>
@@ -254,11 +254,11 @@
 &lt;body&gt;
 	My fancy content
 	&lt;script src="js/my_fancy_script.js"&gt;&lt;/script&gt;
-&lt;/body&gt;						
+&lt;/body&gt;
 						</code></pre>
 					</section>
 				</section>
-				
+
 				<section>
 					<section>
 						<h1>Dynamically loading of JS</h1>
@@ -367,21 +367,21 @@
 					</section>
 					<section>
 						<h2>Not always true</h2>
-					</section>		
+					</section>
 					<section>
 						<h2>If you have lot of JS which is only used in one part of the site...</h2>
-					</section>		
+					</section>
 					<section>
 						<h2>Make two files, one with basic JS for every page</h2>
-					</section>		
+					</section>
 					<section>
 						<h2>one with special content for a part of the page</h2>
-					</section>		
+					</section>
 					<section>
 						<h1>Performance</h1>
 						<h2>vs</h2>
 						<h1>Complexity</h1>
-					</section>		
+					</section>
 				</section>
 				<section>
 					<section>
@@ -412,7 +412,7 @@
 &lt;body&gt;
 	My fancy content
 	{render_include_statement('global')}
-&lt;/body&gt;						
+&lt;/body&gt;
 						</code></pre>
 					</section>
 					<section>
@@ -440,7 +440,7 @@ function render_include_statement(groupName) {
 	return '&lt;script src="filename"&gt;&lt;/script&gt;';
 }
 						</code></pre>
-					</section>						
+					</section>
 				</section>
 				<section>
 					<section>
@@ -485,8 +485,31 @@ $('#msg').append(content);
 							<li class="fragment">Modify the internal structure</li>
 							<li class="fragment">Rerender (at least parts) of the page</li>
 						</ul>
-					</section>					
-					
+					</section>
+					<section>
+						<h2>Save DOM Lookups</h2>
+						<h3>By using variables</h3>
+					</section>
+					<section>
+						<pre><code data-trim>
+$('#sidebar ul li.important').css('color', 'red');
+var text = $('#sidebar ul li.important').text();
+text = 'Wichtig: ' + text + '!!';
+$('#sidebar ul li.important').text(text);
+$('#sidebar ul li.important').css('font-size', '3em');
+						</code></pre>
+					</section>
+					<section>
+						<pre><code data-trim>
+var lis = $('#sidebar ul li.important');
+lis.css('color', 'red');
+var text = lis.text();
+text = 'Wichtig: ' + text + '!!';
+lis.text(text);
+lis.css('font-size', '3em');
+						</code></pre>
+					</section>
+
 					<section>
 						<h1>Real world example</h1>
 					</section>
@@ -511,7 +534,7 @@ $('#msg').append(content);
   &lt;option value=&quot;theme:twitter-relevant&quot;&gt;
     Twitter relevant
   &lt;/option&gt;
-&lt;/select&gt;					
+&lt;/select&gt;
 						</code></pre>
 					</section>
 					<section>
@@ -523,20 +546,20 @@ $('#msg').append(content);
       Tagesschau&lt;/li&gt;
   &lt;/ul&gt;&lt;ul&gt;
     &lt;li data-attr=&quot;theme:twitter-relevant&quot;&gt;
-      Tatort&lt;/li&gt;	
+      Tatort&lt;/li&gt;
   &lt;/ul&gt;
-&lt;/div&gt;							
+&lt;/div&gt;
 						</code></pre>
 										</section>
 					<section>
 						<h2>First aproach</h2>
 						<pre><code data-trim>
 var filter = $('select').val();
-var selector = 
+var selector =
   '[data-attr*=' + filter + ']';
 
 $('li').show();
-$('li:not(' + selector + ')').hide();							
+$('li:not(' + selector + ')').hide();
 						</code></pre>
 					</section>
 					<section>
@@ -556,10 +579,10 @@ $('li:not(' + selector + ')').hide();
 						<pre><code data-trim>
 var $repository = $('li').clone();
 $('div.letter').each(function(){
-	
-});							
+
+});
 						</code></pre>
-					</section>						
+					</section>
 				</section>
 			</div>
 
