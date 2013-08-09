@@ -521,7 +521,7 @@ lis.css('font-size', '3em');
 						<img src="img/sendungen-a-z-filter.png">
 					</section>
 					<section>
-						<h2>Problem: Columns markup in 2 &lt;ul&gt;s</h2>
+						<h2>Problem: Column markup in 2 &lt;ul&gt;s</h2>
 						<img src="img/sendungen-a-z-two-uls.png">
 					</section>
 					<section>
@@ -569,7 +569,7 @@ $('li:not(' + selector + ')').hide();
 					<section>
 						<h2>Second approach</h2>
 						<ul>
-							<li class="fragment">Clone all <code>&lt;li&gt;</code> elements (shows) into a repository (variable)</li>
+							<li class="fragment">Clone all <code>&lt;li&gt;</code> elements (shows) into a repository</li>
 							<li class="fragment">Go through all letters, find the shows in the repository which match the letter and the filter</li>
 							<li class="fragment">Append each show to the proper <code>&lt;ul&gt;</code> in the letter <code>&lt;div&gt;</code></li>
 						</ul>
@@ -577,9 +577,16 @@ $('li:not(' + selector + ')').hide();
 					<section>
 						<h2>Second approach</h2>
 						<pre><code data-trim>
-var $repository = $('li').clone();
+$('.li-container').clone().appendTo($('body')).addClass('copy');
 $('div.letter').each(function(){
-
+  var shows = $('.li-container.copy').find(selector);
+  shows.each(function(index){
+    if(index > (shows.length / 2)) {
+      container.find('ul.left').append(this);
+    } else {
+      container.find('ul.right').append(this);
+    }
+  })
 });
 						</code></pre>
 					</section>
