@@ -188,13 +188,13 @@
 						<p>(IE 9 in this case)</p>
 					</section>
 					<section>
-						<h3>In older browser this restriction is set to 2</h3>
+						<h3>In older browser this restriction is set to 2 connections per host</h3>
 					</section>
 					<section>
 						<h3>This restriction is part of the HTTP standard</h3>
 					</section>
 					<section>
-						<h3>But modern browsers don't care</h3>
+						<h3>But modern browsers usually allow 6 connections per host</h3>
 					</section>
 				</section>
 
@@ -426,13 +426,10 @@ javascript[]=jquery.cookie.js
 					<section>
 						<pre><code data-trim>
 function render_include_statement(groupName) {
-	files = new Group(groupName);
-	lastRun = getLastRun();
-	newestModificationDate = files.newestModificationDate;
-	if (newestModificationDate > lastRun.timestamp) {
-		result = concatenate(files);
-		result = pack(result);
-		filename = md5(newestModificationDate);
+	files = getFilesByGroupname(groupName);
+	if (files.newestModificationDate &gt; lastRun.timestamp) {
+		result = concatenate(pack(files));
+		filename = md5(files.newestModificationDate);
 		save_file(filename, result);
 	} else {
 		filename = lastRun.filename;
@@ -554,9 +551,11 @@ lis.css('font-size', '3em');
 					<section>
 						<h2>First aproach</h2>
 						<pre><code data-trim>
-var filter = $('select').val();
+var theme = $('#theme-filter').val();
+var station = $('#station-filter').val();
 var selector =
-  '[data-attr*=' + filter + ']';
+  '[data-attr*="' + theme + '"]'
+  + '[data-attr*="' + station + '"]';
 
 $('li').show();
 $('li:not(' + selector + ')').hide();
@@ -575,21 +574,119 @@ $('li:not(' + selector + ')').hide();
 						</ul>
 					</section>
 					<section>
-						<h2>Second approach</h2>
+						<h2>Second approach - Cloning</h2>
 						<pre><code data-trim>
-$('.li-container').clone().appendTo($('body')).addClass('copy');
-$('div.letter').each(function(){
-  var shows = $('.li-container.copy').find(selector);
-  shows.each(function(index){
-    if(index > (shows.length / 2)) {
-      container.find('ul.left').append(this);
-    } else {
-      container.find('ul.right').append(this);
-    }
-  })
-});
+$('.li-container')
+  .clone()
+  .appendTo($('body'))
+  .addClass('copy')
+  .hide();
 						</code></pre>
 					</section>
+					<section>
+						<h2>Second approach - Iterating</h2>
+						<pre><code data-trim>
+$('div.letter').each(function(){
+  $('.li-container.copy')
+    .find(selector)
+    .each(function(index){
+      if(index &gt; (shows.length / 2)) {
+        container.find('ul.left')
+          .append($(this).show());
+      } else ...
+     }); });
+						</code></pre>
+					</section>					
+					<section>
+						<h3>This was</h3>
+						<h1>slow</h1>
+					</section>
+					<section>
+						<h2>Third approach</h2>
+					</section>
+					<section>
+						<h2>Third approach - Cloning</h2>
+						<pre><code data-trim>
+// on init
+$('.li-container').appendTo('#repository');
+// #repository is hidden by CSS
+var shows = $('#repository').clone();
+						</code></pre>						
+					</section>
+					<section>
+						<h2>Third approach - Iterating</h2>
+						<pre><code data-trim>
+$('div.letter').each(function(){
+  lShows = shows.find(
+    selector + letterSelector);
+  lShows.each(function(index){
+    container.find('ul')
+      .eq(index &lt; (lShows.length / 2))
+      .append(this);
+  });
+});
+						</code></pre>
+					</section>					
+					<section>
+						<h3>This was</h3>
+						<h1>fast</h1>
+					</section>
+					<section>
+						<h3>So, what's the</h3>
+						<h1>difference</h1>
+					</section>
+					<section>
+						<h3>The key is</h3>
+						<h1>DOM manipulation</h1>
+					</section>
+					<section>
+						<h2>Second approach</h2>
+						<code>clone().appendTo(whatever)</code>
+					</section>
+					<section>
+						<h2>Third approach</h2>
+						<code>var shows = repository.clone()</code>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Recap</h1>
+					</section>
+					<section>
+						<h2>Performance is a</h2>
+						<h1>Feature</h1>
+						<aside class="note">This is the most important one, really. If you think this talk is shit but you take away this info, I'm happy :)</aside>
+					</section>
+					<section>
+						<h2>CSS in the head</h2>
+						<h2>JS just before closing tag of body</h2>
+					</section>
+					<section>
+						<h2>Put all your CSS and JS in</h2>
+						<h1>One file</h1>
+						<h2>And minify it</h2>
+					</section>
+					<section>
+						<h2>Version your CSS and JS files</h2>
+					</section>
+					<section>
+						<h2>Save DOM manipulations</h2>
+					</section>
+					<section>
+						<h2>Use detached variables for big manipulations</h2>
+					</section>
+					<section>
+						<h2>Use variables to save DOM lookups</h2>
+					</section>
+				</section>
+				
+				<section>
+					<h1>Q&amp;A</h1>
+				</section>
+				
+				<section>
+					<h1>Thank you!</h1>
 				</section>
 			</div>
 
