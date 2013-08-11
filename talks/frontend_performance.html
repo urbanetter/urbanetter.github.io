@@ -50,28 +50,28 @@
 						<h1>About me</h1>
 					</section>
 					<section>
-						<h3>Urban Legends</h3>
+						<h2>Urban Legends</h2>
 					</section>
 					<section>
-						<h3>Urban Myths</h3>
+						<h2>Urban Myths</h2>
 					</section>
 					<section>
-						<h3>Urban Species</h3>
+						<h2>Urban Species</h2>
 					</section>
 					<section>
-						<h3>Urban Etter</h3>
+						<h2>Urban Etter</h2>
 					</section>
 					<section>
-						<h3>Web Architect</h3>
+						<img src="img/srf_logo.png">
 					</section>
 					<section>
-						<h3>Part of the Frontend Team</h3>
+						<h2>Schweizer Radio und Fernsehen</h2>
 					</section>
 					<section>
-						<h3>Schweizer Radio und Fernsehen</h3>
+						<h2>Web Architect</h2>
 					</section>
 					<section>
-						<img src="img/srf_logo.png" border="0">
+						<h2>Part of the Frontend Team</h2>
 					</section>
 				</section>
 
@@ -99,7 +99,7 @@
 						<h2>It takes effort to get it right</h2>
 					</section>
 					<section>
-						<h2>It often conflicts with other interests</h2>
+						<h2>It often conflicts with other features</h2>
 						<ul>
 							<li class="fragment">Reduced complexity</li>
 							<li class="fragment">Maintainability</li>
@@ -110,7 +110,7 @@
 						<h3>Involves almost every discipline in web development</h3>
 					</section>
 					<section>
-						<p>Now this topic is</p>
+						<p>Performance is</p>
 						<h1>HUGE</h1>
 					</section>
 					<section>
@@ -126,8 +126,8 @@
 						<h1>This talk is not about that</h1>
 					</section>
 					<section>
-						<p>Tricks to make your website faster when you're</p>
-						<h3>yahoo.com</h3>
+						<h3>Tricks to make your website faster when you're</h3>
+						<h2>yahoo.com</h2>
 					</section>
 					<section>
 						<p>Use <code>['hello', 'world'].join(' ')</code></p>
@@ -164,7 +164,7 @@
 						<img src="img/server_talking.png">
 					</section>
 					<section>
-						<h2>In real world, there are a lot more files</h2>
+						<h2>More files</h2>
 					</section>
 					<section>
 						<img src="img/loading_waterfall.png">
@@ -173,7 +173,6 @@
 						<img src="img/waterfall_context.png">
 					</section>
 					<section>
-						<h3>This means</h3>
 						<ul>
 							<li class="fragment">It took almost 1 second to fetch the initial HTML</li>
 							<li class="fragment">It took almost 3.5 seconds to reach DOM ready</li>
@@ -184,17 +183,19 @@
 						<img src="img/waterfall_parallel_requests.png">
 					</section>
 					<section>
-						<h3>The browser only starts 4 parallel requests for images</h3>
-						<p>(IE 9 in this case)</p>
+						<h3>Not all images paralell</h3>
 					</section>
 					<section>
-						<h3>In older browser this restriction is set to 2 connections per host</h3>
+						<h3>Restriction</h3>
+						<h2>2 connections per host</h2>
+						<p>For older browsers</p>
 					</section>
 					<section>
-						<h3>This restriction is part of the HTTP standard</h3>
+						<h3>Part of the HTTP standard</h3>
 					</section>
 					<section>
-						<h3>But modern browsers usually allow 6 connections per host</h3>
+						<h3>Modern browsers</h3>
+						<h2>6 connections per host</h2>
 					</section>
 				</section>
 
@@ -205,11 +206,11 @@
 					<section>
 						<pre><code data-trim>
 &lt;head&gt;
-	&lt;link rel="stylesheet" href="css/my_fancy_style.css"&gt;
-	&lt;script src="js/my_fancy_script.js"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;script src="script.js"&gt; &lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	My fancy content
+  My fancy content
 &lt;/body&gt;
 						</code></pre>
 					</section>
@@ -225,16 +226,17 @@
 					<section>
 						<pre><code data-trim>
 &lt;head&gt;
-	&lt;link rel="stylesheet" href="css/my_fancy_style.css"&gt;
-	&lt;script src="js/my_fancy_script.js" async&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;script src="script.js" async&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	My fancy content
+  My fancy content
 &lt;/body&gt;
 						</code></pre>
 					</section>
 					<section>
-						<h3>Starts JS parsing at first oppurtunity but is not blocking</h3>
+						<h2>Not blocking</h2>
+						
 					</section>
 					<section>
 						<h2>Solution 2</h2>
@@ -249,11 +251,11 @@
 					<section>
 						<pre><code data-trim>
 &lt;head&gt;
-	&lt;link rel="stylesheet" href="css/my_fancy_style.css"&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	My fancy content
-	&lt;script src="js/my_fancy_script.js"&gt;&lt;/script&gt;
+  My fancy content
+  &lt;script src="script.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 						</code></pre>
 					</section>
@@ -328,6 +330,7 @@
 						<h3>you really have a lot of (big) images on the page</h3>
 					</section>
 				</section>
+				
 				<section>
 					<section>
 						<h1>Browser cache</h1>
@@ -383,6 +386,7 @@
 						<h1>Complexity</h1>
 					</section>
 				</section>
+				
 				<section>
 					<section>
 						<h1>Versioning</h1>
@@ -398,20 +402,20 @@
 						<img src="img/calmclearcache.jpg">
 					</section>
 					<section>
-						<code>&lt;script src="my_awsome_script.js"&gt;&lt;/script&gt;</code>
+						<code>&lt;script src="script.js"&gt;&lt;/script&gt;</code>
 					</section>
 					<section>
-						<code>&lt;script src="my_awsome_script.js?v=12"&gt;&lt;/script&gt;</code>
+						<code>&lt;script src="script.js?v=12"&gt;&lt;/script&gt;</code>
 					</section>
 					<section>
 						<aside class="notes">How we do this at srf.ch</aside>
 						<pre><code data-trim>
 &lt;head&gt;
-	&lt;link rel="stylesheet" href="css/my_fancy_style.css"&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	My fancy content
-	{render_include_statement('global')}
+  My fancy content
+  {render_include_statement('global')}
 &lt;/body&gt;
 						</code></pre>
 					</section>
@@ -425,17 +429,15 @@ javascript[]=jquery.cookie.js
 					</section>
 					<section>
 						<pre><code data-trim>
-function render_include_statement(groupName) {
-	files = getFilesByGroupname(groupName);
-	if (files.newestModificationDate &gt; lastRun.timestamp) {
-		result = concatenate(pack(files));
-		filename = md5(files.newestModificationDate);
-		save_file(filename, result);
-	} else {
-		filename = lastRun.filename;
-	}
-	return '&lt;script src="filename"&gt;&lt;/script&gt;';
-}
+function render_include(groupName) {
+  files = getFilesByGroup(groupName);
+  if (files.newest &gt; lastRun.timestamp) {
+    result = pack(concatenate(files));
+    filename = md5(files.newest);
+    save_file(filename, result);
+  } else {
+    filename = lastRun.filename; }
+  return '&lt;script src="filename"&gt;'; }
 						</code></pre>
 					</section>
 				</section>
@@ -489,11 +491,11 @@ $('#msg').append(content);
 					</section>
 					<section>
 						<pre><code data-trim>
-$('#sidebar ul li.important').css('color', 'red');
-var text = $('#sidebar ul li.important').text();
+$('#sidebar ul li.warn').css('color', 'red');
+var text = $('#sidebar ul li.warn').text();
 text = 'Wichtig: ' + text + '!!';
-$('#sidebar ul li.important').text(text);
-$('#sidebar ul li.important').css('font-size', '3em');
+$('#sidebar ul li.warn').text(text);
+$('#sidebar ul li.warn').css('font-size', '3em');
 						</code></pre>
 					</section>
 					<section>
@@ -656,7 +658,7 @@ $('div.letter').each(function(){
 					<section>
 						<h2>Performance is a</h2>
 						<h1>Feature</h1>
-						<aside class="note">This is the most important one, really. If you think this talk is shit but you take away this info, I'm happy :)</aside>
+						<aside class="notes">This is the most important one, really. If you think this talk is shit but you take away this info, I'm happy :)</aside>
 					</section>
 					<section>
 						<h2>CSS in the head</h2>
@@ -704,6 +706,10 @@ $('div.letter').each(function(){
 				progress: true,
 				history: true,
 				center: true,
+				
+				width: 1366,
+			    height: 768,
+			    
 
 				theme: 'beige', // available themes are in /css/theme
 				transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
