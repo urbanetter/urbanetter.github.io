@@ -95,6 +95,7 @@
 						<h1>This talk is not about that</h1>
 					</section>
 					<section>
+						<aside class="notes">I could also talk about...</aside>
 						<h3>Tricks to make your website faster when you're</h3>
 						<h2>yahoo.com</h2>
 					</section>
@@ -107,15 +108,19 @@
 						<h1>This talk is neither about that</h1>
 					</section>
 					<section>
+						<aside class="notes">It is however about... good practices I would recommend</aside>
 						<h2>Good practices</h2>
 					</section>
 					<section>
+						<aside class="notes">Some traps I ran into</aside>
 						<h2>Some traps</h2>
 					</section>
 					<section>
+						<aside class="notes">And some code I want to show you</aside>
 						<h2>Some code</h2>
 					</section>
 					<section>
+						<aside class="notes">I could also call the talk</aside>
 						<h2>Frontend performance for the</h2>
 						<h1>craftsmen</h1>
 					</section>
@@ -148,7 +153,7 @@
 						<h2>It often conflicts with other features</h2>
 						<h3 class="fragment">Reduced complexity</h3>
 						<h3 class="fragment">Maintainability</h3>
-						<h3 class="fragment">Security/h3>
+						<h3 class="fragment">Security</h3>
 					</section>
 					<section>
 						<h3>Involves almost every discipline in web development</h3>
@@ -164,6 +169,7 @@
 						<h2 class="fragment">is to understand the page loading process</h2>
 					</section>
 					<section>
+						<aside class="notes">This is how it would look if users browser and the server texted to each other</aside>
 						<img src="img/server_talking.png">
 					</section>
 					<section>
@@ -179,20 +185,21 @@
 						<img src="img/waterfall_context.png">
 					</section>
 					<section>
-						<h2>It took almost 1 second to fetch the initial HTML</h2>
-						<h2 class="fragment">It took almost 3.5 seconds to reach DOM ready</h2>
-						<h2 class="fragment">It took almost 4.5 seconds to reach "loaded" event</h2>
+						<h2>1 second to fetch the initial HTML</h2>
+						<h2 class="fragment">3.5 seconds to reach DOM ready</h2>
+						<h2 class="fragment">4.5 seconds to reach "loaded" event</h2>
 					</section>
 					<section>
+						<aside class="notes">What we also can see from this image is</aside>
 						<img src="img/waterfall_parallel_requests.png">
 					</section>
 					<section>
-						<h3>Not all images paralell</h3>
+						<h3>Not all images load paralell</h3>
 					</section>
 					<section>
 						<h3>Restriction</h3>
 						<h2>2 connections per host</h2>
-						<p>For older browsers</p>
+						<p>for older browsers</p>
 					</section>
 					<section>
 						<h3>Part of the HTTP standard</h3>
@@ -297,16 +304,17 @@
 						<h1>HTTP request</h1>
 					</section>
 					<section>
-						<h1>DON'T</h1>
-						<h2>unless you create</h2>
-						<h2>client side</h2>
-						<h2>one page application</h2>
-					</section>
 					<section>
 						<h1>But...</h1>
 					</section>
 					<section>
 						<h3>save some bandwith for not used features</h3>
+						<h3>and it's clever</h3>
+					</section>
+					<section>
+						<h1>DON'T</h1>
+						<h2>unless you create a</h2>
+						<h2>one page application</h2>
 					</section>
 					<section>
 						<h2>Been there, done that</h2>
@@ -334,28 +342,27 @@
 				
 				<section>
 					<section>
+						<aside class="notes">Let me tell you about a less known friend of yours</aside>
 						<h1>Browser cache</h1>
 					</section>
 					<section>
-						<h2>When all JS is in one file</h2>
-					</section>
-					<section>
+						<h2>All JS in one file</h2>
 						<h2>Browser only has to download it once</h2>
 					</section>
 					<section>
 						<h2>Free for the rest of the stay</h2>
 					</section>
 					<section>
-						<ul>
-							<li>Concatenate all your JS into one file</li>
-							<li class="fragment">Minify it</li>
-						</ul>
+						<h2>Throw all your JS into one file</h2>
+						<h2 class="fragment">Minify it</h2>
+						<h2 class="fragment">And your browser cache takes care of your script</h2>
 					</section>
 					<section>
 						<p>It doesn't even matter if you</p>
 						<h2>Need all the JS for this page</h2>
 					</section>
 					<section>
+						<aside class="notes">Because</aside>
 						<h2>Its better to have a bigger file with first request</h2>
 					</section>
 					<section>
