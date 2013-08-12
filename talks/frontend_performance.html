@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Frontend performance - wher it matters</title>
+		<title>Frontend performance - where it matters</title>
 
 		<meta name="description" content="A talk about where frontend performance really matters">
 		<meta name="author" content="Urban Etter">
@@ -156,7 +156,7 @@
 						<h3 class="fragment">Security</h3>
 					</section>
 					<section>
-						<h3>Involves almost every discipline in web development</h3>
+						<h3>Involves every discipline in web development</h3>
 					</section>
 				</section>
 
@@ -293,6 +293,9 @@
 						<h2>Load calendar JS when hovering on the calendar</h2>
 					</section>
 					<section>
+						<h2>Problem: delay on hovering</h2>
+					</section>
+					<section>
 						<h2>Load calendar JS when all other code is loaded</h2>
 					</section>
 					<section>
@@ -303,7 +306,6 @@
 						<h2>Result: Additional</h2>
 						<h1>HTTP request</h1>
 					</section>
-					<section>
 					<section>
 						<h1>But...</h1>
 					</section>
@@ -336,6 +338,7 @@
 						<h3>A lot of (big) images on the page</h3>
 					</section>
 					<section>
+						<aside class="notes">About 320 shows</aside>
 						<img src="img/podcasts.png">
 					</section>
 				</section>
@@ -367,18 +370,6 @@
 					</section>
 					<section>
 						<h2>than to have x additional requests</h2>
-					</section>
-					<section>
-						<h2>Not always true</h2>
-					</section>
-					<section>
-						<h2>If you have lot of JS which is only used in one part of the site...</h2>
-					</section>
-					<section>
-						<h2>Make two files, one with basic JS for every page</h2>
-					</section>
-					<section>
-						<h2>one with special content for a part of the page</h2>
 					</section>
 					<section>
 						<h1>Performance</h1>
@@ -415,7 +406,7 @@
 &lt;/head&gt;
 &lt;body&gt;
   My fancy content
-  {render_include_statement('global')}
+  {render_include('global')}
 &lt;/body&gt;
 						</code></pre>
 					</section>
@@ -453,37 +444,28 @@ function render_include(groupName) {
 						<aside class="notes">Not a technical definition</aside>
 					</section>
 					<section>
-						<h2>We use JS to manipulate the DOM</h2>
-					</section>
-					<section>
-						<h2>Browser has internal DOM structure</h2>
-					</section>
-					<section>
 						<aside class="notes">What the browser has to do when executing a JS call. Not the part of jQuery, which translates the sugar syntax into othe DOM methods.</aside>
 						<pre><code>$('#msg').addClass('very_important');</code></pre>
-						<ul>
-							<li class="fragment">Look up the <code>div</code> with id "msg" in the internal structure</li>
-							<li class="fragment">Modify the internal structure</li>
-							<li class="fragment">Rerender (at least parts) of the page</li>
-						</ul>
+						<h3 class="fragment">Look up the <code>div</code> with id "msg" in the internal structure</h3>
+						<h3 class="fragment">Modify the internal structure</h3>
+						<h3 class="fragment">Rerender (at least parts) of the page</h3>
 					</section>
 					<section>
-						<h2>If manipulation is done on variable</h2>
+						<h2>Save DOM manipulations</h2>
 					</section>
 					<section>
 						<pre><code data-trim>
-var content = $('&lt;div&gt;');
+var content = $('#msg').detach();
 content.addClass('very_important');
 // more manipulation
 $('#msg').append(content);
 						</code></pre>
+						<aside class="notes">This also works with created DOM nodes</aside>
 					</section>
 					<section>
 						<h2>This saves</h2>
-						<ul>
-							<li class="fragment">Modify the internal structure</li>
-							<li class="fragment">Rerender (at least parts) of the page</li>
-						</ul>
+						<h3 class="fragment">Modify the internal structure</h3>
+						<h3 class="fragment">Rerender (at least parts) of the page</h3>
 					</section>
 					<section>
 						<h2>Save DOM Lookups</h2>
@@ -493,19 +475,19 @@ $('#msg').append(content);
 						<pre><code data-trim>
 $('#sidebar ul li.warn').css('color', 'red');
 var text = $('#sidebar ul li.warn').text();
-text = 'Wichtig: ' + text + '!!';
+text = 'Important: ' + text + '!!';
 $('#sidebar ul li.warn').text(text);
 $('#sidebar ul li.warn').css('font-size', '3em');
 						</code></pre>
 					</section>
 					<section>
 						<pre><code data-trim>
-var lis = $('#sidebar ul li.important');
-lis.css('color', 'red');
-var text = lis.text();
-text = 'Wichtig: ' + text + '!!';
-lis.text(text);
-lis.css('font-size', '3em');
+var li = $('#sidebar ul li.important');
+li.css('color', 'red');
+var text = li.text();
+text = 'Important: ' + text + '!!';
+li.text(text);
+li.css('font-size', '3em');
 						</code></pre>
 					</section>
 
@@ -517,11 +499,11 @@ lis.css('font-size', '3em');
 						<aside class="notes">314 shows (radio and tv)</aside>
 					</section>
 					<section>
-						<h2>Problem: Filtering</h2>
+						<h2>Filtering</h2>
 						<img src="img/sendungen-a-z-filter.png">
 					</section>
 					<section>
-						<h2>Problem: Column markup in 2 &lt;ul&gt;s</h2>
+						<h2>Column markup in 2 &lt;ul&gt;s</h2>
 						<img src="img/sendungen-a-z-two-uls.png">
 					</section>
 					<section>
@@ -550,7 +532,7 @@ lis.css('font-size', '3em');
   &lt;/ul&gt;
 &lt;/div&gt;
 						</code></pre>
-										</section>
+					</section>
 					<section>
 						<h2>First aproach</h2>
 						<pre><code data-trim>
@@ -644,11 +626,11 @@ $('div.letter').each(function(){
 					</section>
 					<section>
 						<h2>Second approach</h2>
-						<code>clone().appendTo(whatever)</code>
+						<pre><code>clone().appendTo(whatever)</code></pre>
 					</section>
 					<section>
 						<h2>Third approach</h2>
-						<code>var shows = repository.clone()</code>
+						<pre><code>var shows = repository.clone()</code></pre>
 					</section>
 				</section>
 
