@@ -77,43 +77,12 @@
 
 				<section>
 					<section>
-						<h1>Performance matters</h1>
-					</section>
-					<section>
-						<blockquote>
-							... that slowing down the search results page by 100 to 400 milliseconds has a measurable impact on the number of searches per user of -0.2% to -0.6%
-						</blockquote>
-						<p>by <a href="http://googleresearch.blogspot.ch/2009/06/speed-matters.html">Google</a></p>
-					</section>
-					<section>
-						<blockquote>
-							To get that sensation, your requests need to take less than 100ms.
-						</blockquote>
-						<p>by <a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">37 signals</a>
-					</section>
-					<section>
-						<h2>Performance is a</h2>
-						<h1>feature</h1>
-					</section>
-					<section>
-						<h2>It takes effort to get it right</h2>
-					</section>
-					<section>
-						<h2>It often conflicts with other features</h2>
-						<ul>
-							<li class="fragment">Reduced complexity</li>
-							<li class="fragment">Maintainability</li>
-							<li class="fragment">Security</li>
-						</ul>
-					</section>
-					<section>
-						<h3>Involves almost every discipline in web development</h3>
-					</section>
-					<section>
-						<p>Performance is</p>
+						<h3>Performance is a</h3>
 						<h1>HUGE</h1>
+						<h3>topic</h3>
 					</section>
 					<section>
+						<aside class="notes">I could talk about...</aside>
 						<h2>Cache invalidation</h2>
 					</section>
 					<section>
@@ -130,7 +99,7 @@
 						<h2>yahoo.com</h2>
 					</section>
 					<section>
-						<p>Use <code>['hello', 'world'].join(' ')</code></p>
+						<p><code>['hello', 'world'].join(' ')</code></p>
 						<p>instead of</p>
 						<p><code>'hello' + ' ' + 'world'</code></p>
 					</section>
@@ -154,6 +123,40 @@
 
 				<section>
 					<section>
+						<h1>Performance matters</h1>
+					</section>
+					<section>
+						<blockquote>
+							... that slowing down the search results page by 100 to 400 milliseconds has a measurable impact on the number of searches per user of -0.2% to -0.6%
+						</blockquote>
+						<p>by <a href="http://googleresearch.blogspot.ch/2009/06/speed-matters.html">Google</a></p>
+					</section>
+					<section>
+						<blockquote>
+							To get that sensation, your requests need to take less than 100ms.
+						</blockquote>
+						<p>by <a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">37 signals</a>
+					</section>
+					<section>
+						<h2>Performance is a</h2>
+						<h1>feature</h1>
+					</section>
+					<section>
+						<h2>It takes effort to get it right</h2>
+					</section>
+					<section>
+						<h2>It often conflicts with other features</h2>
+						<h3 class="fragment">Reduced complexity</h3>
+						<h3 class="fragment">Maintainability</h3>
+						<h3 class="fragment">Security/h3>
+					</section>
+					<section>
+						<h3>Involves almost every discipline in web development</h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
 						<h1>Loading process</h1>
 					</section>
 					<section>
@@ -164,20 +167,21 @@
 						<img src="img/server_talking.png">
 					</section>
 					<section>
-						<h2>More files</h2>
+						<aside class="notes">In reality</aside>
+						<h2>Lot faster</h2>
+						<h2 class="fragment">Lot more files</h2>
 					</section>
 					<section>
 						<img src="img/loading_waterfall.png">
 					</section>
 					<section>
+						<aside class="notes">If you zoom to the first line</aside>
 						<img src="img/waterfall_context.png">
 					</section>
 					<section>
-						<ul>
-							<li class="fragment">It took almost 1 second to fetch the initial HTML</li>
-							<li class="fragment">It took almost 3.5 seconds to reach DOM ready</li>
-							<li class="fragment">It took almost 4.5 seconds to reach "loaded" event</li>
-						</ul>
+						<h2>It took almost 1 second to fetch the initial HTML</h2>
+						<h2 class="fragment">It took almost 3.5 seconds to reach DOM ready</h2>
+						<h2 class="fragment">It took almost 4.5 seconds to reach "loaded" event</h2>
 					</section>
 					<section>
 						<img src="img/waterfall_parallel_requests.png">
@@ -215,7 +219,9 @@
 						</code></pre>
 					</section>
 					<section>
-						<h2>Problem: JS loading and parsing blocks rendering process</h2>
+						<h2>JS loading and parsing</h2>
+						<h1>blocks</h1>
+						<h2>rendering process</h2>
 					</section>
 					<section>
 						<h2>Solution 1</h2>
@@ -235,8 +241,7 @@
 						</code></pre>
 					</section>
 					<section>
-						<h2>Not blocking</h2>
-						
+						<h2><code>async</code> == not blocking</h2>
 					</section>
 					<section>
 						<h2>Solution 2</h2>
@@ -244,9 +249,6 @@
 					</section>
 					<section>
 						<h2>Put JS at the end of the body tag</h2>
-					</section>
-					<section>
-						<h2>Put CSS in the <code>&lt;head&gt;</code> tag</h2>
 					</section>
 					<section>
 						<pre><code data-trim>
@@ -295,7 +297,10 @@
 						<h1>HTTP request</h1>
 					</section>
 					<section>
-						<h3>Bad if you have the calendar on a lot of pages</h3>
+						<h1>DON'T</h1>
+						<h2>unless you create</h2>
+						<h2>client side</h2>
+						<h2>one page application</h2>
 					</section>
 					<section>
 						<h1>But...</h1>
@@ -310,24 +315,20 @@
 						<h1>Just not worth it</h1>
 					</section>
 					<section>
-						<h3>Which does not mean you should</h3>
-						<h1>Never</h1>
-						<h3>do it</h3>
-					</section>
-					<section>
-						<h3>But you probably won't have to do it</h3>
-					</section>
-					<section>
 						<h3>Deferred != Bad</h3>
 					</section>
 					<section>
-						<h3>Deferred image loading actually really makes a difference</h3>
+						<h2>Deferred image loading</h2>
+						<h1>FTW</h1>
 					</section>
 					<section>
 						<h1>if</h1>
 					</section>
 					<section>
-						<h3>you really have a lot of (big) images on the page</h3>
+						<h3>A lot of (big) images on the page</h3>
+					</section>
+					<section>
+						<img src="img/podcasts.png">
 					</section>
 				</section>
 				
@@ -345,18 +346,10 @@
 						<h2>Free for the rest of the stay</h2>
 					</section>
 					<section>
-						<p>This means</p>
-						<h2>Put all your JS into one file</h2>
-					</section>
-					<section>
-						<h2>Minify</h2>
-					</section>
-					<section>
-						<p>Because</p>
-						<h2>One HTTP request</h2>
-					</section>
-					<section>
-						<h2>On the first page view</h2>
+						<ul>
+							<li>Concatenate all your JS into one file</li>
+							<li class="fragment">Minify it</li>
+						</ul>
 					</section>
 					<section>
 						<p>It doesn't even matter if you</p>
