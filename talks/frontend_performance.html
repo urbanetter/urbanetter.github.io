@@ -68,7 +68,7 @@
 						<h2>Schweizer Radio und Fernsehen</h2>
 					</section>
 					<section>
-						<h2>Web Architect</h2>
+						<h2>Architect</h2>
 					</section>
 					<section>
 						<h2>Part of the Frontend Team</h2>
@@ -188,6 +188,7 @@
 						<h2>1 second to fetch the initial HTML</h2>
 						<h2 class="fragment">3.5 seconds to reach DOM ready</h2>
 						<h2 class="fragment">4.5 seconds to reach "loaded" event</h2>
+						<aside class="notes">Spinning circle disappears at 4.5 seconds</aside>
 					</section>
 					<section>
 						<aside class="notes">What we also can see from this image is</aside>
@@ -207,6 +208,7 @@
 					<section>
 						<h3>Modern browsers</h3>
 						<h2>6 connections per host</h2>
+						<aside class="notes">Some browsers have more</aside>
 					</section>
 				</section>
 
@@ -258,6 +260,7 @@
 						<h2>Put JS at the end of the body tag</h2>
 					</section>
 					<section>
+						<aside class="notes">Preferred because you do not have to care about older browsers</aside>
 						<pre><code data-trim>
 &lt;head&gt;
   &lt;link rel="stylesheet" href="style.css"&gt;
@@ -281,12 +284,10 @@
 						<img src="img/deferred_calendar.png">
 					</section>
 					<section>
-						<h2>Calendar is not needed until click on calendar icon</h2>
-					</section>
-					<section>
 						<h2>Load calendar JS when clicking on the calendar</h2>
 					</section>
 					<section>
+						<aside class="notes">Problem: JS is needed on hover</aside>
 						<img src="img/calendar.png">
 					</section>
 					<section>
@@ -303,26 +304,22 @@
 						<h1>Complexity</h1>
 					</section>
 					<section>
-						<h2>Result: Additional</h2>
-						<h1>HTTP request</h1>
-					</section>
-					<section>
 						<h1>But...</h1>
 					</section>
 					<section>
-						<h3>save some bandwith for not used features</h3>
+						<h3>save some bandwidth for not used features</h3>
 						<h3>and it's clever</h3>
 					</section>
 					<section>
 						<h1>DON'T</h1>
-						<h2>unless you create a</h2>
+						<h2>unless you create an</h2>
 						<h2>one page application</h2>
 					</section>
 					<section>
-						<h2>Been there, done that</h2>
+						<h1>Just not worth it</h1>
 					</section>
 					<section>
-						<h1>Just not worth it</h1>
+						<h2>Been there, done that</h2>
 					</section>
 					<section>
 						<h3>Deferred != Bad</h3>
@@ -335,7 +332,8 @@
 						<h1>if</h1>
 					</section>
 					<section>
-						<h3>A lot of (big) images on the page</h3>
+						<h3>A lot of images on the page</h3>
+						<aside class="notes">It matters more on the count of the images than the image size</aside>
 					</section>
 					<section>
 						<aside class="notes">About 320 shows</aside>
@@ -524,7 +522,7 @@ li.css('font-size', '3em');
 						<pre><code data-trim>
 &lt;div class="letter" data-letter=&quot;t&quot;&gt;
   &lt;ul&gt;
-    &lt;li data-attr=&quot;theme:news&quot;&gt;
+    &lt;li data-attr=&quot;theme:news,station:srf1&quot;&gt;
       Tagesschau&lt;/li&gt;
   &lt;/ul&gt;&lt;ul&gt;
     &lt;li data-attr=&quot;theme:twitter-relevant&quot;&gt;
