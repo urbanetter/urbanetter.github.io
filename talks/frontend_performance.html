@@ -127,15 +127,14 @@
 					<section>
 						<h2>#1 Performance matters</h2>
 						<h2 class="fragment">#2 Loading process</h2>
-						<h2 class="fragment">#3 Load JS asyncronly</h2>
+						<h2 class="fragment">#3 Load JS asyncronously</h2>
 						<h2 class="fragment">#4 Dynamically loading of JS</h2>
-						<h2 class="fragment">#5 Browser cache</h2>
 					</section>
 					<section>
-						<h2>#6 Versioning</h2>
+						<h2>#5 Browser cache</h2>
+						<h2 class="fragment">#6 Versioning</h2>
 						<h2 class="fragment">#7 DOM manipulation</h2>
 						<h2 class="fragment">#8 Tools</h2>
-						<h2 class="fragment">#9 Recap</h2>	
 					</section>
 				</section>
 
@@ -291,7 +290,7 @@
 						<h1>#4 Dynamically loading of JS</h1>
 					</section>
 					<section>
-						<h2>Defer loading of some scripts until needed</h2>
+						<h2>Deferred loading of some scripts until needed</h2>
 					</section>
 					<section>
 						<img src="img/deferred_calendar.png">
@@ -317,19 +316,9 @@
 						<h1>Complexity</h1>
 					</section>
 					<section>
-						<h1>But...</h1>
-					</section>
-					<section>
-						<h3>save some bandwidth for not used features</h3>
-						<h3>and it's clever</h3>
-					</section>
-					<section>
 						<h1>DON'T</h1>
 						<h2>unless you create an</h2>
 						<h2>one page application</h2>
-					</section>
-					<section>
-						<h1>Just not worth it</h1>
 					</section>
 					<section>
 						<h2>Been there, done that</h2>
@@ -342,15 +331,21 @@
 						<h1>FTW</h1>
 					</section>
 					<section>
-						<h1>if</h1>
-					</section>
-					<section>
 						<h3>A lot of images on the page</h3>
 						<aside class="notes">It matters more on the count of the images than the image size</aside>
 					</section>
 					<section>
 						<aside class="notes">About 320 shows</aside>
 						<img src="img/podcasts.png">
+					</section>
+					<section>
+						<pre><code data-trim>
+&lt;img src="img/placeholder.png" 
+     data-original-src="img/real_image.jpg"&gt;						
+						</code></pre>
+					</section>
+					<section>
+						<h2>Lazy load jQuery plugin</h2>
 					</section>
 				</section>
 				
@@ -385,11 +380,26 @@
 					<section>
 						<h2>CSS sprites</h2>
 					</section>
-					<!-- TODO -->
-					
 					<section>
-						<h2>Performance is a</h2>
-						<h1>Feature</h1>
+						<img src="img/radio.png">
+					</section>
+					<section>
+						<img src="img/sprite.png">
+					</section>
+					<section>
+						<pre><code data-trim>
+.sprite-musikwelle {background-position: 0 0; width: 46px; height: 22px;}
+.sprite-srf1 {background-position: -66px 0; width: 46px; height: 22px;}
+.sprite-srf2 {background-position: -132px 0; width: 46px; height: 22px;}
+.sprite-srf3 {background-position: -198px 0; width: 46px; height: 22px;}
+.sprite-srf4 {background-position: -264px 0; width: 46px; height: 22px;}
+.sprite-virus {background-position: -330px 0; width: 46px; height: 22px;}
+						</code></pre>
+					</section>
+					<section>
+						<h1>Complexity</h1>
+						<h2>vs</h2>
+						<h1>Performance</h1>
 					</section>
 				</section>
 				
@@ -596,6 +606,9 @@ $('div.letter').each(function(){
 						</code></pre>
 					</section>					
 					<section>
+						<img src="img/spinning_wheel.gif" border="0" class="transparent">
+					</section>
+					<section>
 						<h3>This was</h3>
 						<h1>slow</h1>
 					</section>
@@ -610,21 +623,7 @@ $('.li-container').appendTo('#repository');
 // #repository is hidden by CSS
 var shows = $('#repository').clone();
 						</code></pre>						
-					</section>
-					<section>
-						<h2>Third approach - Iterating</h2>
-						<pre><code data-trim>
-$('div.letter').each(function(){
-  lShows = shows.find(
-    selector + letterSelector);
-  lShows.each(function(index){
-    container.find('ul')
-      .eq(index &lt; (lShows.length / 2))
-      .append(this);
-  });
-});
-						</code></pre>
-					</section>					
+					</section>				
 					<section>
 						<h3>This was</h3>
 						<h1>fast</h1>
@@ -650,6 +649,31 @@ $('div.letter').each(function(){
 				<section>
 					<section>
 						<h1>#8 Tools</h1>
+					</section>
+					<section>
+						<h2>YSlow</h2>
+						<img src="img/yslow.png">
+					</section>
+					<section>
+						<h2>Google PageSpeed Insights</h2>
+						<img src="img/google_page_speed.png">
+					</section>					
+					<section>
+						<h2>Web page test</h2>
+						<img src="img/webpagetest.png">
+					</section>
+					<section>
+						<img src="img/webpagetest_result.png">
+					</section>
+					<section>
+						<img src="img/webpagetest_content_breakdown.png">
+					</section>
+					<section>
+						<h2>Regression test</h2>
+					</section>
+					<section>
+						<h2>Show slow</h2>
+						<img src="img/showslow.png">
 					</section>
 				</section>
 
@@ -679,6 +703,9 @@ $('div.letter').each(function(){
 					</section>
 					<section>
 						<h2>Use variables to save DOM lookups</h2>
+					</section>
+					<section>
+						<h2>Use tools to measure your performance over time</h2>
 					</section>
 				</section>
 				
