@@ -503,29 +503,6 @@ $('#msg').append(content);
 						<h3 class="fragment">Modify the internal structure</h3>
 						<h3 class="fragment">Rerender (at least parts) of the page</h3>
 					</section>
-					<section>
-						<h2>Save DOM Lookups</h2>
-						<h3>By using variables</h3>
-					</section>
-					<section>
-						<pre><code data-trim>
-$('#sidebar ul li.warn').css('color', 'red');
-var text = $('#sidebar ul li.warn').text();
-text = 'Important: ' + text + '!!';
-$('#sidebar ul li.warn').text(text);
-$('#sidebar ul li.warn').css('font-size', '3em');
-						</code></pre>
-					</section>
-					<section>
-						<pre><code data-trim>
-var li = $('#sidebar ul li.important');
-li.css('color', 'red');
-var text = li.text();
-text = 'Important: ' + text + '!!';
-li.text(text);
-li.css('font-size', '3em');
-						</code></pre>
-					</section>
 
 					<section>
 						<h1>Real world example</h1>
@@ -711,9 +688,6 @@ var shows = $('#repository').clone();
 					</section>
 					<section>
 						<h2>Save DOM manipulations</h2>
-					</section>
-					<section>
-						<h2>Use variables to save DOM lookups</h2>
 					</section>
 					<section>
 						<h2>Use tools to measure your performance over time</h2>
