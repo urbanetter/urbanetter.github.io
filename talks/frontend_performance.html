@@ -40,9 +40,8 @@
 				<section>
 					<h1>Frontend Performance</h1>
 					<h3>Where it matters</h3>
-					<p>
-						<small>Urban Etter</small>
-					</p>
+					<p>Frontend Conference 2013</p>
+					<p>Urban Etter</p>
 				</section>
 
 				<section>
@@ -102,6 +101,10 @@
 						<h3>Tricks to make your website faster when you're</h3>
 						<h2>yahoo.com</h2>
 					</section>
+					<section>
+						<h2>Advices for creating a</h2>
+						<h2>one page JS app</h2>
+					</section> 
 					<section>
 						<p><code>['hello', 'world'].join(' ')</code></p>
 						<p>instead of</p>
@@ -213,12 +216,12 @@
 						<h3>Not all images load paralell</h3>
 					</section>
 					<section>
-						<h3>Restriction</h3>
-						<h2>2 connections per host</h2>
-						<p>for older browsers</p>
+						<h3>Restriction is</h3>
+						<h3>part of the HTTP standard</h3>
 					</section>
 					<section>
-						<h3>Part of the HTTP standard</h3>
+						<h2>2 connections per host</h2>
+						<p>for older browsers</p>
 					</section>
 					<section>
 						<h3>Modern browsers</h3>
@@ -338,10 +341,6 @@
 						<h1>FTW</h1>
 					</section>
 					<section>
-						<h3>A lot of images on the page</h3>
-						<aside class="notes">It matters more on the count of the images than the image size</aside>
-					</section>
-					<section>
 						<aside class="notes">About 320 shows</aside>
 						<img src="img/podcasts.png">
 					</section>
@@ -353,6 +352,7 @@
 					</section>
 					<section>
 						<h2>Lazy load jQuery plugin</h2>
+						<p><a href="http://www.appelsiini.net/projects/lazyload">Lazy load plugin for jQuery</a></p>
 					</section>
 				</section>
 				
@@ -363,17 +363,14 @@
 					</section>
 					<section>
 						<h2>The good and the bad part</h2>
+					</section>
 					<section>
 						<h2>All JS in one file</h2>
-						<h2>Browser only has to download it once</h2>
+						<h2 class="fragment">Tell the browser to cache it forever</h2>
+						<h2 class="fragment">Browser only has to download it once</h2>
 					</section>
 					<section>
 						<h2>Free for the rest of the stay</h2>
-					</section>
-					<section>
-						<h2>Throw all your JS into one file</h2>
-						<h2 class="fragment">Minify it</h2>
-						<h2 class="fragment">And your browser cache takes care of your script</h2>
 					</section>
 					<section>
 						<p>It doesn't even matter if you</p>
@@ -384,7 +381,7 @@
 						<h2>Its better to have a bigger file with first request</h2>
 					</section>
 					<section>
-						<h2>than to have x additional requests</h2>
+						<h2>than to have a lot of additional requests</h2>
 					</section>
 					<section>
 						<h2>CSS sprites</h2>
@@ -393,7 +390,7 @@
 						<img src="img/radio.png">
 					</section>
 					<section>
-						<img src="img/sprite.png">
+						<img src="img/sprite.png" width="752" height="44">
 					</section>
 					<section>
 						<pre><code data-trim>
@@ -515,6 +512,7 @@ function render_include(groupName) {
 					<section>
 						<aside class="notes">What the browser has to do when executing a JS call. Not the part of jQuery, which translates the sugar syntax into othe DOM methods.</aside>
 						<pre><code>$('#msg').addClass('very_important');</code></pre>
+						<p>&nbsp;</p>
 						<h3 class="fragment">Look up the element with id "msg" in the internal structure</h3>
 						<h3 class="fragment">Modify the internal structure</h3>
 						<h3 class="fragment">Rerender (at least parts) of the page</h3>
@@ -588,7 +586,7 @@ var selector =
   '[data-attr*="' + theme + '"]'
   + '[data-attr*="' + station + '"]';
 
-$('li').show();
+$('li').show(); // reset
 $('li:not(' + selector + ')').hide();
 						</code></pre>
 					</section>
@@ -605,7 +603,7 @@ $('li:not(' + selector + ')').hide();
 					<section>
 						<h2>Second approach - Cloning</h2>
 						<pre><code data-trim>
-$('.li-container')
+$('li')
   .clone()
   .appendTo($('body'))
   .addClass('copy')
@@ -616,7 +614,8 @@ $('.li-container')
 						<h2>Second approach - Iterating</h2>
 						<pre><code data-trim>
 $('div.letter').each(function(){
-  $('.li-container.copy')
+  var container = $(this);
+  $('li.copy') // repository
     .find(selector)
     .each(function(index){
       if(index &gt; (shows.length / 2)) {
@@ -640,7 +639,7 @@ $('div.letter').each(function(){
 						<h2>Third approach - Cloning</h2>
 						<pre><code data-trim>
 // on init
-$('.li-container').appendTo('#repository');
+$('li').appendTo('#repository');
 // #repository is hidden by CSS
 var shows = $('#repository').clone();
 						</code></pre>						
@@ -660,10 +659,12 @@ var shows = $('#repository').clone();
 					<section>
 						<h2>Second approach</h2>
 						<pre><code>clone().appendTo(whatever)</code></pre>
+						<p>and manipulate DOM</p>
 					</section>
 					<section>
 						<h2>Third approach</h2>
 						<pre><code>var shows = repository.clone()</code></pre>
+						<p>and manipulate variable</p>
 					</section>
 				</section>
 				
@@ -683,7 +684,8 @@ var shows = $('#repository').clone();
 					<section>
 						<h2>Put all your CSS and JS in</h2>
 						<h1>One file</h1>
-						<h2>And minify it</h2>
+						<h2>minify it</h2>
+						<h2>and let the browser cache it</h2>
 					</section>
 					<section>
 						<h2>Version your CSS and JS files</h2>
@@ -703,6 +705,11 @@ var shows = $('#repository').clone();
 				<section>
 					<h1>Thank you!</h1>
 				</section>
+				
+				<section>
+					<h2>Slides at</h2>
+					<h1><a href="https://speakerdeck.com/urbanetter">speakerdeck.com/urbanetter</a></h1>
+				</section>
 			</div>
 
 		</div>
@@ -716,9 +723,10 @@ var shows = $('#repository').clone();
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				controls: true,
-				progress: true,
+				progress: false,
 				history: true,
 				center: true,
+				rollingLinks: false,
 				
 				width: 1366,
 			    height: 768,
