@@ -596,9 +596,9 @@ $('li:not(' + selector + ')').hide();
 					</section>
 					<section>
 						<h2>Second approach</h2>
-						<h3 class="fragment">Clone all <code>&lt;li&gt;</code> elements (shows) into a repository</h3>
-						<h3 class="fragment">Go through all letters, find the shows in the repository which match the letter and the filter</h3>
-						<h3 class="fragment">Append each show to the proper <code>&lt;ul&gt;</code> in the letter <code>&lt;div&gt;</code></h3>
+						<h3 class="fragment">Clone all shows into a repository</h3>
+						<h3 class="fragment">Go through all letters, find the shows in the repository which match the filter</h3>
+						<h3 class="fragment">Append each show to the proper <code>&lt;ul&gt;</code></h3>
 					</section>
 					<section>
 						<h2>Second approach - Cloning</h2>
@@ -606,21 +606,20 @@ $('li:not(' + selector + ')').hide();
 $('li')
   .clone()
   .appendTo($('body'))
-  .addClass('copy')
-  .hide();
+  .addClass('copy');
 						</code></pre>
 					</section>
 					<section>
 						<h2>Second approach - Iterating</h2>
 						<pre><code data-trim>
 $('div.letter').each(function(){
-  var container = $(this);
+  var container = $(this).find('li').remove(); 
   $('li.copy') // repository
     .find(selector)
     .each(function(index){
       if(index &gt; (shows.length / 2)) {
         container.find('ul.left')
-          .append($(this).show());
+          .append($(this).clone().show());
       } else ...
      }); });
 						</code></pre>
@@ -640,7 +639,8 @@ $('div.letter').each(function(){
 						<pre><code data-trim>
 // on init
 $('li').appendTo('#repository');
-// #repository is hidden by CSS
+
+// when iterating through letters
 var shows = $('#repository').clone();
 						</code></pre>						
 					</section>				
@@ -649,7 +649,7 @@ var shows = $('#repository').clone();
 						<h1>fast</h1>
 					</section>
 					<section>
-						<h3>So, what's the</h3>
+						<h3>What's the</h3>
 						<h1>difference</h1>
 					</section>
 					<section>
@@ -659,12 +659,12 @@ var shows = $('#repository').clone();
 					<section>
 						<h2>Second approach</h2>
 						<pre><code>clone().appendTo(whatever)</code></pre>
-						<p>and manipulate DOM</p>
+						<p>Manipulate DOM</p>
 					</section>
 					<section>
 						<h2>Third approach</h2>
 						<pre><code>var shows = repository.clone()</code></pre>
-						<p>and manipulate variable</p>
+						<p>Manipulate variable</p>
 					</section>
 				</section>
 				
@@ -691,11 +691,12 @@ var shows = $('#repository').clone();
 						<h2>Version your CSS and JS files</h2>
 					</section>
 					<section>
-						<h2>Save DOM manipulations</h2>
-					</section>
-					<section>
 						<h2>Use tools to measure your performance over time</h2>
 					</section>
+					<section>
+						<h2>Save DOM manipulations</h2>
+					</section>
+
 				</section>
 				
 				<section>
