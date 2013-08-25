@@ -102,8 +102,8 @@
 						<h2>yahoo.com</h2>
 					</section>
 					<section>
-						<h2>Advices for creating a</h2>
-						<h2>one page JS app</h2>
+						<h2>Advices for creating</h2>
+						<h2>one page web app</h2>
 					</section> 
 					<section>
 						<p><code>['hello', 'world'].join(' ')</code></p>
@@ -133,7 +133,7 @@
 					<section>
 						<h2>#1 Performance matters</h2>
 						<h2 class="fragment">#2 Loading process</h2>
-						<h2 class="fragment">#3 Load JS asyncronously</h2>
+						<h2 class="fragment">#3 Don't block the browser</h2>
 						<h2 class="fragment">#4 Deferred loading of JS</h2>
 					</section>
 					<section>
@@ -168,7 +168,7 @@
 						<h2>It takes effort to get it right</h2>
 					</section>
 					<section>
-						<h2>It often conflicts with other features</h2>
+						<h3>It conflicts with other features</h3>
 						<h3 class="fragment">Reduced complexity</h3>
 						<h3 class="fragment">Maintainability</h3>
 						<h3 class="fragment">Security</h3>
@@ -232,7 +232,7 @@
 
 				<section>
 					<section>
-						<h1>#3 Load JS asynchronously</h1>
+						<h1>#3 Don't block the browser</h1>
 					</section>
 					<section>
 						<pre><code data-trim>
@@ -302,14 +302,18 @@
 						<img src="img/deferred_calendar.png">
 					</section>
 					<section>
-						<h2>Load calendar JS when clicking on the calendar</h2>
+						<h3>Load calendar JS when</h3>
+						<h2>clicking</h2>
+						<h3>on the calendar</h3>
 					</section>
 					<section>
 						<aside class="notes">Problem: JS is needed on hover</aside>
 						<img src="img/calendar.png">
 					</section>
 					<section>
-						<h2>Load calendar JS when hovering on the calendar</h2>
+						<h3>Load calendar JS when</h3>
+						<h2>hovering</h2>
+						<h3>over the calendar</h3>
 					</section>
 					<section>
 						<h2>Problem: delay on hovering</h2>
@@ -345,14 +349,14 @@
 						<img src="img/podcasts.png">
 					</section>
 					<section>
+						<h2>Lazy load jQuery plugin</h2>
+						<p><a href="http://www.appelsiini.net/projects/lazyload">Lazy load plugin for jQuery</a></p>
+					</section>
+					<section>
 						<pre><code data-trim>
 &lt;img src="img/placeholder.png" 
      data-original-src="img/real_image.jpg"&gt;						
 						</code></pre>
-					</section>
-					<section>
-						<h2>Lazy load jQuery plugin</h2>
-						<p><a href="http://www.appelsiini.net/projects/lazyload">Lazy load plugin for jQuery</a></p>
 					</section>
 				</section>
 				
@@ -362,7 +366,7 @@
 						<h1>#5 Browser cache</h1>
 					</section>
 					<section>
-						<h2>The good and the bad part</h2>
+						<h2>The good and the bad parts</h2>
 					</section>
 					<section>
 						<h2>All JS in one file</h2>
@@ -378,10 +382,14 @@
 					</section>
 					<section>
 						<aside class="notes">Because</aside>
-						<h2>Its better to have a bigger file with first request</h2>
+						<h3>Better have</h3>
+						<h2>one big</h2>
+						<h3>request</h3>
 					</section>
 					<section>
-						<h2>than to have a lot of additional requests</h2>
+						<h3>than have</h3>
+						<h2>a lot of small</h2>
+						<h3>requests</h3>
 					</section>
 					<section>
 						<h2>CSS sprites</h2>
@@ -504,8 +512,7 @@ function render_include(groupName) {
 					</section>
 					<section>
 						<h2>DOM</h2>
-						<p>=</p>
-						<h2>HTML representation</h2>
+						<h2>intern HTML representation</h2>
 						<h2>accessible by JS</h2>
 						<aside class="notes">Not a technical definition</aside>
 					</section>
@@ -540,7 +547,7 @@ $('#msg').append(content);
 					</section>
 					<section>
 						<img src="img/sendungen-a-z.png">
-						<aside class="notes">314 shows (radio and tv)</aside>
+						<aside class="notes">316 shows (radio and tv)</aside>
 					</section>
 					<section>
 						<h2>Filtering</h2>
@@ -601,19 +608,19 @@ $('li:not(' + selector + ')').hide();
 						<h3 class="fragment">Append each show to the proper <code>&lt;ul&gt;</code></h3>
 					</section>
 					<section>
-						<h2>Second approach - Cloning</h2>
+						<h2>Cloning</h2>
 						<pre><code data-trim>
-$('li')
+$('li') // shows
   .clone()
   .appendTo($('body'))
   .addClass('copy');
 						</code></pre>
 					</section>
 					<section>
-						<h2>Second approach - Iterating</h2>
+						<h2>Iterating</h2>
 						<pre><code data-trim>
 $('div.letter').each(function(){
-  var container = $(this).find('li').remove(); 
+  var container = $(this); container.find('li').remove(); 
   $('li.copy') // repository
     .find(selector)
     .each(function(index){
