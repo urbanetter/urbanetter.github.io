@@ -560,11 +560,11 @@ $('#msg').append(content);
 					<section>
 						<h2>HTML - Selects</h2>
 						<pre><code data-trim>
-&lt;select id=&quot;theme&quot;&gt;
-  &lt;option value=&quot;theme:news&quot;&gt;
+&lt;select id=&quot;topic&quot;&gt;
+  &lt;option value=&quot;topic:news&quot;&gt;
     News
   &lt;/option&gt;
-  &lt;option value=&quot;theme:twitter-relevant&quot;&gt;
+  &lt;option value=&quot;topic:twitter-relevant&quot;&gt;
     Twitter relevant
   &lt;/option&gt;
 &lt;/select&gt;
@@ -575,10 +575,10 @@ $('#msg').append(content);
 						<pre><code data-trim>
 &lt;div class="letter" data-letter=&quot;t&quot;&gt;
   &lt;ul&gt;
-    &lt;li data-attr=&quot;theme:news,station:srf1&quot;&gt;
+    &lt;li data-attr=&quot;topic:news,station:srf1&quot;&gt;
       Tagesschau&lt;/li&gt;
   &lt;/ul&gt;&lt;ul&gt;
-    &lt;li data-attr=&quot;theme:twitter-relevant&quot;&gt;
+    &lt;li data-attr=&quot;topic:twitter-relevant&quot;&gt;
       Tatort&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;
@@ -587,10 +587,10 @@ $('#msg').append(content);
 					<section>
 						<h2>First aproach</h2>
 						<pre><code data-trim>
-var theme = $('#theme-filter').val();
+var theme = $('#topic-filter').val();
 var station = $('#station-filter').val();
 var selector =
-  '[data-attr*="' + theme + '"]'
+  '[data-attr*="' + topic + '"]'
   + '[data-attr*="' + station + '"]';
 
 $('li').show(); // reset
@@ -603,32 +603,33 @@ $('li:not(' + selector + ')').hide();
 					</section>
 					<section>
 						<h2>Second approach</h2>
-						<h3 class="fragment">Clone all shows into a repository</h3>
-						<h3 class="fragment">Go through all letters, find the shows in the repository which match the filter</h3>
-						<h3 class="fragment">Append each show to the proper <code>&lt;ul&gt;</code></h3>
+						<h3 class="fragment">Hide all shows</h3>
+						<h3 class="fragment">Iterating through letters</h3>
+						<h3 class="fragment">Clone matching shows</h3>
+						<h3 class="fragment">Append show to left or right list</h3>
+						<h3 class="fragment">Show the show</h3>
 					</section>
 					<section>
-						<h2>Cloning</h2>
-						<pre><code data-trim>
-$('li') // shows
-  .clone()
-  .appendTo($('body'))
-  .addClass('copy');
-						</code></pre>
-					</section>
-					<section>
-						<h2>Iterating</h2>
+						<h2>Iterating and cloning</h2>
 						<pre><code data-trim>
 $('div.letter').each(function(){
-  var container = $(this); container.find('li').remove(); 
-  $('li.copy') // repository
+  $('li.show')
     .find(selector)
-    .each(function(index){
-      if(index &gt; (shows.length / 2)) {
-        container.find('ul.left')
-          .append($(this).clone().show());
-      } else ...
-     }); });
+    .clone()
+    .addClass('copied')
+    .appendTo('body');
+});
+						</code></pre>
+					</section>					
+					<section>
+						<h2>Iterating and cloning</h2>
+						<pre><code data-trim>
+...
+$('li.copied).each(function(){
+  // append to left or right ul	
+  $(this).show();
+});
+...
 						</code></pre>
 					</section>					
 					<section>
@@ -642,13 +643,17 @@ $('div.letter').each(function(){
 						<h2>Third approach</h2>
 					</section>
 					<section>
-						<h2>Third approach - Cloning</h2>
+						<h2>Iterating</h2>
 						<pre><code data-trim>
-// on init
-$('li').appendTo('#repository');
-
-// when iterating through letters
-var shows = $('#repository').clone();
+$repository = $('li.show').find(selector).clone();
+$('div.letter').each(function(){
+  $repository
+    .find(selector)
+    .each(function(){
+	  // append to left or right ul	
+    })
+    .show();
+});
 						</code></pre>						
 					</section>				
 					<section>
@@ -660,18 +665,18 @@ var shows = $('#repository').clone();
 						<h1>difference</h1>
 					</section>
 					<section>
-						<h3>The key is</h3>
-						<h1>DOM manipulation</h1>
-					</section>
-					<section>
 						<h2>Second approach</h2>
-						<pre><code>clone().appendTo(whatever)</code></pre>
-						<p>Manipulate DOM</p>
+						<h3>Inserting cloned Nodes in DOM</h3>
+						<h3>while iterating</h3>
 					</section>
 					<section>
 						<h2>Third approach</h2>
-						<pre><code>var shows = repository.clone()</code></pre>
-						<p>Manipulate variable</p>
+						<h3>Have a variable with cloned shows early</h3>
+						<h3>No DOM manipulation while iterating</h3>
+					</section>
+					<section>
+						<h1>DOM manipulation</h1>
+						<h3>is the key here</h3>
 					</section>
 				</section>
 				
