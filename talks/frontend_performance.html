@@ -512,7 +512,7 @@ function render_include(groupName) {
 					</section>
 					<section>
 						<h2>DOM</h2>
-						<h2>intern HTML representation</h2>
+						<h2>internal HTML representation</h2>
 						<h2>accessible by JS</h2>
 						<aside class="notes">Not a technical definition</aside>
 					</section>
@@ -587,7 +587,7 @@ $('#msg').append(content);
 					<section>
 						<h2>First aproach</h2>
 						<pre><code data-trim>
-var theme = $('#topic-filter').val();
+var topic = $('#topic-filter').val();
 var station = $('#station-filter').val();
 var selector =
   '[data-attr*="' + topic + '"]'
@@ -618,6 +618,7 @@ $('div.letter').each(function(){
     .clone()
     .addClass('copied')
     .appendTo('body');
+    ...
 });
 						</code></pre>
 					</section>					
@@ -645,15 +646,15 @@ $('li.copied).each(function(){
 					<section>
 						<h2>Iterating</h2>
 						<pre><code data-trim>
-$repository = $('li.show').find(selector).clone();
+$repository = $('li.show');
 $('div.letter').each(function(){
   $repository
+    .clone()
     .find(selector)
     .each(function(){
 	  // append to left or right ul	
     })
-    .show();
-});
+    .show(); });
 						</code></pre>						
 					</section>				
 					<section>
@@ -671,7 +672,6 @@ $('div.letter').each(function(){
 					</section>
 					<section>
 						<h2>Third approach</h2>
-						<h3>Have a variable with cloned shows early</h3>
 						<h3>No DOM manipulation while iterating</h3>
 					</section>
 					<section>
@@ -696,19 +696,17 @@ $('div.letter').each(function(){
 					<section>
 						<h2>Put all your CSS and JS in</h2>
 						<h1>One file</h1>
-						<h2>minify it</h2>
-						<h2>and let the browser cache it</h2>
 					</section>
 					<section>
-						<h2>Version your CSS and JS files</h2>
+						<h2>Version CSS and JS files</h2>
 					</section>
 					<section>
-						<h2>Use tools to measure your performance over time</h2>
+						<h2>Use tools to measure</h2>
+						<h2>performance over time</h2>
 					</section>
 					<section>
 						<h2>Save DOM manipulations</h2>
 					</section>
-
 				</section>
 				
 				<section>
@@ -721,7 +719,7 @@ $('div.letter').each(function(){
 				
 				<section>
 					<h2>Slides at</h2>
-					<h1><a href="https://speakerdeck.com/urbanetter">speakerdeck.com/urbanetter</a></h1>
+					<h2><a href="https://speakerdeck.com/urbanetter">speakerdeck.com/urbanetter</a></h2>
 				</section>
 			</div>
 
