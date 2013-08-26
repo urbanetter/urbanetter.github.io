@@ -97,11 +97,6 @@
 						<h1>This talk is not about that</h1>
 					</section>
 					<section>
-						<aside class="notes">I could also talk about...</aside>
-						<h3>Tricks to make your website faster when you're</h3>
-						<h2>yahoo.com</h2>
-					</section>
-					<section>
 						<h2>Advices for creating</h2>
 						<h2>one page web apps</h2>
 					</section> 
@@ -174,6 +169,7 @@
 						<h3 class="fragment">Security</h3>
 					</section>
 					<section>
+						<h2>Complex</h2>
 						<h3>Involves every discipline in web development</h3>
 					</section>
 				</section>
@@ -213,7 +209,7 @@
 						<img src="img/waterfall_parallel_requests.png">
 					</section>
 					<section>
-						<h3>Not all images load in paralell</h3>
+						<h3>Not all images load in parallel</h3>
 					</section>
 					<section>
 						<h3>Restriction is</h3>
@@ -377,10 +373,6 @@
 						<h2>Free for the rest of the stay</h2>
 					</section>
 					<section>
-						<p>It doesn't even matter if you</p>
-						<h2>Need all the JS for this page</h2>
-					</section>
-					<section>
 						<aside class="notes">Because</aside>
 						<h3>Better have</h3>
 						<h2>one big</h2>
@@ -392,7 +384,7 @@
 						<h3>requests</h3>
 					</section>
 					<section>
-						<h2>CSS sprites</h2>
+						<h1>CSS sprites</h1>
 					</section>
 					<section>
 						<img src="img/radio.png">
@@ -528,21 +520,6 @@ function render_include(groupName) {
 						<h2>Save DOM manipulations</h2>
 					</section>
 					<section>
-						<pre><code data-trim>
-var content = $('#msg').detach();
-content.addClass('very_important');
-// more manipulation
-$('#msg').append(content);
-						</code></pre>
-						<aside class="notes">This also works with created DOM nodes</aside>
-					</section>
-					<section>
-						<h2>This saves</h2>
-						<h3 class="fragment">Modify the internal structure</h3>
-						<h3 class="fragment">Rerender (at least parts) of the page</h3>
-					</section>
-
-					<section>
 						<h1>Real world example</h1>
 					</section>
 					<section>
@@ -614,12 +591,12 @@ $('li:not(' + selector + ')').hide();
 						<pre><code data-trim>
 $('div.letter').each(function(){
   $('li.show')
+    .hide()
     .find(selector)
     .clone()
     .addClass('copied')
     .appendTo('body');
-    ...
-});
+    ... });
 						</code></pre>
 					</section>					
 					<section>
@@ -646,11 +623,11 @@ $('li.copied).each(function(){
 					<section>
 						<h2>Iterating</h2>
 						<pre><code data-trim>
-$repository = $('li.show');
+$repository = $('li.show').hide();
 $('div.letter').each(function(){
   $repository
-    .clone()
     .find(selector)
+    .clone()
     .each(function(){
 	  // append to left or right ul	
     })
@@ -715,11 +692,8 @@ $('div.letter').each(function(){
 				
 				<section>
 					<h1>Thank you!</h1>
-				</section>
-				
-				<section>
-					<h2>Slides at</h2>
-					<h2><a href="https://speakerdeck.com/urbanetter">speakerdeck.com/urbanetter</a></h2>
+					<h3>Slides at</h3>
+					<h3><a href="https://speakerdeck.com/urbanetter">speakerdeck.com/urbanetter</a></h3>
 				</section>
 			</div>
 
