@@ -98,7 +98,7 @@
 					</section>
 					<section>
 						<h2>Advices for creating</h2>
-						<h2>one page web apps</h2>
+						<h2>single-page web apps</h2>
 					</section> 
 					<section>
 						<p><code>['hello', 'world'].join(' ')</code></p>
@@ -170,6 +170,8 @@
 					</section>
 					<section>
 						<h2>Complex</h2>
+					</section>
+					<section>
 						<h3>Involves every discipline in web development</h3>
 					</section>
 				</section>
@@ -199,9 +201,9 @@
 						<img src="img/waterfall_context.png">
 					</section>
 					<section>
-						<h2>1 second to fetch the initial HTML</h2>
-						<h2 class="fragment">3.5 seconds to reach DOM ready</h2>
-						<h2 class="fragment">4.5 seconds to reach "loaded" event</h2>
+						<h2>timing point #1: fetch the initial HTML</h2>
+						<h2 class="fragment">timing point #2: reach DOM ready</h2>
+						<h2 class="fragment">timing point #3: reach "loaded" event</h2>
 						<aside class="notes">Spinning circle disappears at 4.5 seconds</aside>
 					</section>
 					<section>
@@ -216,12 +218,12 @@
 						<h3>part of the HTTP standard</h3>
 					</section>
 					<section>
-						<h2>2 connections per host</h2>
+						<h2>2 parallel connections per host</h2>
 						<p>for older browsers</p>
 					</section>
 					<section>
 						<h3>Modern browsers</h3>
-						<h2>6 connections per host</h2>
+						<h2>6 parallel connections per host</h2>
 						<aside class="notes">Some browsers have more</aside>
 					</section>
 				</section>
@@ -289,10 +291,10 @@
 
 				<section>
 					<section>
-						<h1>#4 Deferred loading of JS</h1>
+						<h1>#4 Deferred loading of Javascript</h1>
 					</section>
 					<section>
-						<h2>Deferred loading of some scripts until needed</h2>
+						<h2>Not all JS is needed in all situations</h2>
 					</section>
 					<section>
 						<img src="img/deferred_calendar.png">
@@ -328,7 +330,7 @@
 					<section>
 						<h1>NOT WORTH IT</h1>
 						<h2>unless you are creating a</h2>
-						<h2>one-page application</h2>
+						<h2>single-page application</h2>
 					</section>
 					<section>
 						<h2>Been there, done that</h2>
@@ -366,11 +368,12 @@
 					</section>
 					<section>
 						<h2>All JS in one file</h2>
-						<h2 class="fragment">Tell the browser to cache it forever</h2>
+						<h2 class="fragment">Tell the browser to cache it</h2>
 						<h2 class="fragment">Browser only has to download it once</h2>
 					</section>
 					<section>
-						<h2>Free for the rest of the stay</h2>
+						<h1>Free</h1>
+						<h2>for the rest of the stay</h2>
 					</section>
 					<section>
 						<aside class="notes">Because</aside>
@@ -644,12 +647,11 @@ $('div.letter').each(function(){
 					</section>
 					<section>
 						<h2>Second approach</h2>
-						<h3>Inserting cloned Nodes in DOM</h3>
-						<h3>while iterating</h3>
+						<h3>Multiple DOM manipulations whie iterating</h3>
 					</section>
 					<section>
 						<h2>Third approach</h2>
-						<h3>No DOM manipulation while iterating</h3>
+						<h3>Only one DOM manipulation while iterating</h3>
 					</section>
 					<section>
 						<h1>DOM manipulation</h1>
@@ -694,6 +696,7 @@ $('div.letter').each(function(){
 					<h1>Thank you!</h1>
 					<h3>Slides at</h3>
 					<h3><a href="https://speakerdeck.com/urbanetter">speakerdeck.com/urbanetter</a></h3>
+					<h3>@urbmc</h3>
 				</section>
 			</div>
 
