@@ -7,7 +7,7 @@ categories: talk
 
 My first talk at a conference was at the [Frontend Conference in Zurich][front].
 
-Here are the [slides], based on [Reveal.js][reveal]. There is a [PDF version][pdf] at sliderdeck.com and the talk was even [recorded] by the fine guys at frontend conf. Thanks again.
+Here are the [slides], based on [Reveal.js][reveal]. There is a [PDF version][pdf] at speakerdeck.com and the talk was even [recorded] by the fine guys at frontend conf. Thanks again.
 
 [front]: http://2013.frontendconf.ch
 [reveal]: http://lab.hakim.se/reveal-js
